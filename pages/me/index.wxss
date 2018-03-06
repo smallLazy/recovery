@@ -1,0 +1,23 @@
+/* pages/me/index.wxss */
+.login{
+  width: 30%;
+  height: 220rpx;
+  margin: 0 auto;
+}
+.login image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.common{
+  margin: 0 auto;
+  width: 90%;
+  height: 100rpx;
+  border: 1rpx solid #eee;
+  font-size: 14px;
+  text-indent: 20rpx;
+  margin-bottom: 40rpx;
+}
+.submit{
+  width: 90%;
+  margin: 0 auto;
+}

@@ -1,0 +1,14 @@
+<view class="content">
+  <view class='login'>
+    <image src="{{src}}"></image>
+  </view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <input name="phone" class="common" type='number' placeholder="手机号" />
+      <input name="vcode" class='common' type="number" placeholder='验证码' />
+    </view>
+    <view class="btn-area">
+      <button formType="submit" class='submit'>登录</button>
+    </view>
+  </form>
+</view>
