@@ -1,3 +1,21 @@
-<view class="container">
-  
+<view class='banner'>
+   <image src='./images/banner.png' style='height:500rpx; width: 100%;'></image> 
+</view>
+<view class="collector-list">
+  <view class='collector-title'>
+    <label>附近回收员</label>
+    <label class="more"> >> </label>
+  </view>
+   <view class='collector-common'>
+    <image src='./images/header1.png'></image>
+    <label>大懒懒</label>
+  </view>
+  <view class='collector-common'>
+    <image src='./images/header1.png'></image>
+    <label>小懒懒</label>
+  </view>
+  <view class='collector-common'>
+    <image src='./images/header1.png'></image>
+    <label>臭懒懒</label>
+  </view> 
 </view>

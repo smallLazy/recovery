@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.91",
 	"appid": "wxa0c0622563044687",
-	"projectname": "rec_dev",
+	"projectname": "recovery",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

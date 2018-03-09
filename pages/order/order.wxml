@@ -1,0 +1,27 @@
+<!--pages/order/order.wxml-->
+<view class='content'>
+  <form>
+    <view class='common'>
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+        <view class="picker">
+          <image src='./images/date.png' style='width:28px; height:28px;'></image>{{date}}
+        </view> 
+      </picker>
+    </view>
+
+    <view class='common'>
+      <image src='./images/contacts.png' style='width:28px; height:28px;'></image>
+      <input type='text' placeholder='联系人'></input>
+    </view>
+
+    <view class='common'>
+      <image src='./images/phone.png' style='width:28px; height:28px;'></image>
+      <input type='number' placeholder='手机号'></input>
+    </view>
+
+    <view class='common'>
+      <image src='./images/remarks.png' style='width:28px; height:28px;'></image>
+      <input type='text' placeholder='订单备注'></input>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,27 @@
+<view class="login">
+  <image src='./images/bg.jpg' style='width: 100%;height: 300rpx;'></image>
+  <image class='header' src='./images/unlogin-header.png' style='width: 64px; height:64px;'></image>
+  <label class='login-button'>请先登录</label>
+</view>
+<view class='content'>
+  <navigator class='nav-common'>
+    <image src='./images/order.png' style='width: 28px; height: 28px;'></image>
+    <label>我的订单</label>
+  </navigator>
+  <navigator class='nav-common'>
+    <image src='./images/rec-add.png' style='width: 28px; height: 28px;'></image>
+    <label>收货地址</label>
+  </navigator>
+  <navigator class='nav-common'>
+    <image src='./images/notice.png' style='width: 28px; height: 28px;'></image>
+    <label>系统通知</label>
+  </navigator>
+  <navigator class='nav-common'>
+    <image src='./images/setting.png' style='width: 28px; height: 28px;'></image>
+    <label>更多设置</label>
+  </navigator>
+  <navigator class='nav-common'>
+    <image src='./images/customer.png' style='width: 28px; height: 28px;'></image>
+    <label>懒人客服</label>
+  </navigator>
+</view>

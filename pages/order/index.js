@@ -1,14 +1,24 @@
-// pages/me/index.js
+// pages/order/index.js
 Page({
-  data: {
-    src: './images/logo.jpg'
-  },
-  
 
   /**
    * 页面的初始数据
    */
- 
+  data: {
+  
+  },
+
+  recovery:function(){
+    wx.navigateTo({
+      url: './order',
+      success:function(){
+
+      },
+      fail:function(){
+        
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

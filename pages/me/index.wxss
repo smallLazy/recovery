@@ -2,7 +2,7 @@
 .login{
   width: 30%;
   height: 220rpx;
-  margin: 0 auto;
+  margin: 60rpx auto;
 }
 .login image{
   width: 200rpx;
@@ -13,11 +13,34 @@
   width: 90%;
   height: 100rpx;
   border: 1rpx solid #eee;
-  font-size: 14px;
-  text-indent: 20rpx;
+  font-size: 30rpx;
   margin-bottom: 40rpx;
+  padding-left:40rpx;
+}
+.phone{
+  width: 60%;
+  height: 100rpx;
+  float: left;
+}
+.tiao{
+  float: left;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #bfbfbf;
+  margin: 0 10rpx;
+}
+#get_code{
+  display: block;
+  float: right;
+  width: 30%;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #bfbfbf;
+  font-size: 30rpx;
 }
 .submit{
   width: 90%;
   margin: 0 auto;
+  background-color: #77e35c;
+  color: #fff;
 }

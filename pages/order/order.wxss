@@ -1,0 +1,32 @@
+/* pages/order/order.wxss */
+page{
+  background-color: #eee;
+}
+.content{
+  width: 100%;
+}
+.content form{
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  margin-top: 40rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.content form .common{
+  padding-left: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #eee;
+  font-size: 30rpx;
+}
+.content form .common image{
+  margin-top: 10rpx;
+  float: left;
+  margin-right: 10rpx;
+}
+.content form .common input{
+  height: 100rpx;
+  line-height: 100rpx;
+  
+}

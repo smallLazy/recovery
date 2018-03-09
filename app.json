@@ -1,10 +1,13 @@
 {
   "pages":[
-    "pages/me/index",
-    "pages/index/index"
-    
-    
-    
+    "pages/index/index",
+    "pages/order/order",
+    "pages/order/index",
+    "pages/unlogin/index",
+    "pages/order/second",
+    "pages/order/third",
+    "pages/index/map",
+    "pages/logined/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -13,14 +16,20 @@
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
+    "color": "#000",
+    "selectedColor": "#77e35c",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "预订"
+        "text": "首页",
+        "iconPath":"./images/recommend.png",
+        "selectedIconPath":"./images/recommend-sel.png"
       },
       {
-        "pagePath": "pages/me/index",
-        "text": "我的"
+        "pagePath": "pages/unlogin/index",
+        "text": "我的",
+        "iconPath":"./images/me.png",
+        "selectedIconPath": "./images/me-sel.png"
       }
     ]
   }

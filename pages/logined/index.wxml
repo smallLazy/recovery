@@ -1,0 +1,9 @@
+ <view  bindtap="bindViewTap" class="userinfo">  
+    <image class="user_header" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  </view> 
+  <view class="navigator-list">
+  <navigator url="" class="nav-common">
+  <image src='./images/order.png' style='width:20px; height:20px;'></image>
+  我的预约</navigator>
+  <navigator url="/pages/index/index" open-type="redirect" class="nav-common">更多设置</navigator>
+</view>

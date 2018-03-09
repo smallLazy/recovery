@@ -1,0 +1,10 @@
+<view class='order-nav'>
+  <navigator url='./index' open-type='redirect'>未完成</navigator>
+  <navigator url="./second" open-type="redirect">进行中</navigator>
+  <navigator class='hover' url='./index' open-type='redirect'>已完成</navigator>
+</view>
+
+ <view class="content_3 common">
+  <image src='./images/order.png' style='width: 128px; height: 128px;'></image>
+  <label>暂无订单</label>
+</view> 

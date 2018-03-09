@@ -1,22 +1,48 @@
-/**index.wxss**/
-
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+page{
+  background-color: #eee;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+.container{
+  width: 100%;
+  height: 100%;
+}
+.banner{
+  width: 100%;
+}
+.collector-list{
+  width: 100%;
+  height: 320rpx;
+  background-color: #fff; 
+  margin: 20rpx auto;
+  color: gray;
+}
+.collector-title{
+  display: block;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-indent: 2rem;
+  font-size: 30rpx;
+}
+.collector-title .more{
+  float: right;
+  margin-right: 10%;
+}
+.collector-list .collector-common{
+  width: 30%;
+  height: 320rpx;
+  float: left;
+  margin-left: 2%;
+  text-align: center;
+}
+.collector-common image{
+  width: 64px;
+  height: 64px; 
+  margin: 0 auto;
+  background-color: #eee;
   border-radius: 50%;
 }
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
+.collector-common label{
+  display: block;
+  width: 100%;
+  font-size: 30rpx;
 }
