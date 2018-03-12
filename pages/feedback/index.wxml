@@ -1,0 +1,18 @@
+<view class="content">
+  <view class='login'>
+    <image src="./images/feedback_img.png"></image>
+  </view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <view class='common'>
+        <input name="phone" class="phone" type='number' placeholder="手机号" />
+        <label class='tiao'> | </label>
+        <a href="" id="get_code">获取验证码</a>
+      </view>
+      <input name="vcode" class='common' type="number" placeholder='验证码' />
+    </view>
+    <view class="btn-area">
+      <button formType="submit" class='submit'>登录</button>
+    </view>
+  </form>
+</view>
