@@ -1,0 +1,60 @@
+/* pages/address/index.wxss */
+page{
+  background-color: #eee;
+}
+.address{
+  width: 100%;
+  height: 270rpx;
+  font-size: 30rpx;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+}
+.username{
+  display: block;
+  width: 30%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-indent: 30rpx;
+  float:left;
+}
+.phone{
+  display: block;
+  width: 70%;
+  height: 90rpx;
+  line-height: 90rpx;
+  float:left;
+  text-indent: 30rpx;
+}
+.my-add{
+  clear: both;
+  display: block;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-indent: 30rpx;
+}
+.operate{
+  width:100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-top: 1rpx solid #eee;
+  /* background-color: red; */
+}
+.operate label{
+  display: block;
+  width: 120rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color:gray;
+  float: right;
+  text-align: center;
+}
+.add-address button{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #77e35c;
+  position: fixed;
+  bottom: 0;
+  color: #fff;
+}

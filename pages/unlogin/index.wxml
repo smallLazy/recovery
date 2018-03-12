@@ -4,11 +4,11 @@
   <label class='login-button'>请先登录</label>
 </view>
 <view class='content'>
-  <navigator class='nav-common'>
+  <navigator class='nav-common' url='/pages/order/index' open-type='navigate'>
     <image src='./images/order.png' style='width: 28px; height: 28px;'></image>
     <label>我的订单</label>
   </navigator>
-  <navigator class='nav-common'>
+  <navigator class='nav-common' url='/pages/address/index' open-type='navigate'>
     <image src='./images/rec-add.png' style='width: 28px; height: 28px;'></image>
     <label>收货地址</label>
   </navigator>

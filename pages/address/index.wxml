@@ -1,0 +1,33 @@
+<view class="address">
+  <label class="username">小懒</label>
+  <label class="phone">12345678901</label>
+  <label class='my-add'>上海虹口大柏树</label> 
+  <view class='operate'>
+    <label>编辑</label>
+    <label>删除</label>
+  </view>
+</view>
+
+<view class="address">
+  <label class="username">小懒</label>
+  <label class="phone">12345678901</label>
+  <label class='my-add'>上海虹口大柏树</label> 
+  <view class='operate'>
+    <label>编辑</label>
+    <label>删除</label>
+  </view>
+</view>
+
+<view class="address">
+  <label class="username">小懒</label>
+  <label class="phone">12345678901</label>
+  <label class='my-add'>上海虹口大柏树</label> 
+  <view class='operate'>
+    <label>编辑</label>
+    <label>删除</label>
+  </view>
+</view>
+
+<view class='add-address'>
+  <button bindtap='newAdd'>+ 新建地址</button>
+</view>
