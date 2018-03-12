@@ -1,13 +1,14 @@
 {
   "pages":[
-    "pages/index/index",
+    "pages/unlogin/index",  
+    "pages/address/index",
+    "pages/me/index",
     "pages/order/order",
     "pages/order/index",
-    "pages/unlogin/index",
+    "pages/index/index",
     "pages/order/second",
     "pages/order/third",
-    "pages/index/map",
-    "pages/logined/index"
+    "pages/index/map"
   ],
   "window":{
     "backgroundTextStyle":"light",
