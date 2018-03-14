@@ -13,6 +13,10 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({ title: '个人中心' });
+
+    wx.request({
+      url: 'https://www.lazyfei.top/api/user/check-login',
+    })
   },
 
   /**
