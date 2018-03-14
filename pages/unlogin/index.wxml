@@ -22,6 +22,6 @@
   </navigator>
   <navigator class='nav-common' url='/pages/feedback/index' open-type='navigate'>
     <image src='./images/customer.png'  style='width: 28px; height: 28px;'></image>
-    <label>懒人客服</label>
+    <label>意见反馈</label>
   </navigator>
 </view>

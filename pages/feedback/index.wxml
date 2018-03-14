@@ -1,18 +1,5 @@
-<view class="content">
-  <view class='login'>
-    <image src="./images/feedback_img.png"></image>
-  </view>
-  <form bindsubmit="formSubmit" bindreset="formReset">
-    <view class="section">
-      <view class='common'>
-        <input name="phone" class="phone" type='number' placeholder="手机号" />
-        <label class='tiao'> | </label>
-        <a href="" id="get_code">获取验证码</a>
-      </view>
-      <input name="vcode" class='common' type="number" placeholder='验证码' />
-    </view>
-    <view class="btn-area">
-      <button formType="submit" class='submit'>登录</button>
-    </view>
-  </form>
+<view class='main_feed'>
+    <view class='img_header'><image style="width:200rpx;height:200rpx;"       src='./images/feedback_img.png' ></image></view>
+  
+    <textarea class='textarea' placeholder-style="font-size:12px"placeholder="自动聚焦弹出键盘，一个页面中只能有一个" auto-focus></textarea>
 </view>

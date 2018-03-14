@@ -28,5 +28,8 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+  onShow:function(){
+
   }
 })
