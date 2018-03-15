@@ -21,8 +21,8 @@
     <image src='./images/setting.png' style='width: 28px; height: 28px;'></image>
     <label>更多设置</label>
   </navigator>
-  <navigator class='nav-common'>
-    <image src='./images/customer.png' style='width: 28px; height: 28px;'></image>
-    <label>懒人客服</label>
+  <navigator class='nav-common' url='/pages/feedback/index' open-type='navigate'>
+    <image src='./images/customer.png'  style='width: 28px; height: 28px;'></image>
+    <label>意见反馈</label>
   </navigator>
 </view>

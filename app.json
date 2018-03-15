@@ -8,12 +8,13 @@
     "pages/index/index",
     "pages/order/second",
     "pages/order/third",
-    "pages/index/map"
+    "pages/index/map",
+    "pages/feedback/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "懒人回收",
+    "navigationBarTitleText": "test",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
