@@ -1,7 +1,8 @@
 // pages/me/index.js
 Page({
   data: {
-    src: './images/logo.jpg'
+    src: './images/logo.jpg',
+    isLogin: false
   },
   
 
@@ -14,7 +15,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+  },
+  formSubmit:function(e) {
+    var that = this;
+    var data = e.detail.value;
+    wx.request({
+      url: 'https://www.lazyfei.top/api/user/check-login',
+      data: data,
+      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      method: 'POST',
+      success:function(res){
+        var data = res.data;
+        that.setData({
+          isLogin: true
+        });
+        if(data.code == 200) {
+          // console.log(that.data.isLogin)
+          var isLogin = that.data.isLogin;
+          wx.reLaunch({
+            url: "/pages/unlogin/index?isLogin="+isLogin
+          })
+        }
+      }
+    })
   },
 
   
@@ -23,7 +46,16 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    // wx.login({
+    //   success: function (res) {
+    //     if (res.code) {
+    //       //发起网络请求    
+    //       console.log(res.code)
+    //     } else {
+    //       console.log('获取用户登录态失败！' + res.errMsg)
+    //     }
+    //   }
+    // });
   },
 
   /**

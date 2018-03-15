@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/unlogin/index",  
-    "pages/address/index",
     "pages/me/index",
+    "pages/unlogin/index",
+    "pages/address/index",
     "pages/order/order",
     "pages/order/index",
     "pages/index/index",
