@@ -1,7 +1,5 @@
-﻿{
+{
   "pages":[
-    "pages/unlogin/index",
-    "pages/sign-in/index",
     "pages/personal-center/index",
     "pages/address/index",
     "pages/order/order",
@@ -12,7 +10,7 @@
     "pages/index/map",
     "pages/feedback/index",
     "pages/order/myorder",
-    "pages/me/index"
+    "pages/sign-in/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
