@@ -20,6 +20,32 @@ Page({
   formSubmit:function(e) {
     var that = this;
     var data = e.detail.value;
+    var phone = data.phone;
+    if(phone.length == 0) {
+      wx.showToast({
+        title: '请输入手机号！',
+        icon:'success',
+        duration: 1500
+      })
+      return false;
+    }
+    if (phone.length != 11) {
+      wx.showToast({
+        title: '手机号长度有误！',
+        icon: 'none',
+        duration: 1500
+      })
+      return false;
+    }
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    if (! myreg.test(phone)) {
+      wx.showToast({
+        title: '手机号有误！',
+        icon: 'success',
+        duration: 1500
+      })
+      return false;
+    }
     wx.request({
       url: 'https://www.lazyfei.top/api/user/check-login',
       data: data,
