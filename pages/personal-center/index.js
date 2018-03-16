@@ -28,16 +28,27 @@ Page({
    */
   onReady: function () {
     var that = this;
-    wx.request({
-      url: 'http://www.lazyfei.top/api/user/get-user-info',
-      success:function(res) {
-        console.log(res);
-        // that.setData({
-        //   phone:res.data.phone,
-        //   userName:res.data.user_name
-        // })
+    wx.getStorage({
+      key: 'id',
+      success: function (res) {
+        // console.log(res.data);
+        var data = {'id':res.data};
+        // return false;
+        wx.request({
+          url: 'http://www.lazyfei.top/api/user/get-user-info',
+          data: data,
+          header: { 'content-type': 'application/x-www-form-urlencoded' },
+          method: 'POST',
+          success: function (res) {
+            console.log(res);
+            that.setData({
+              phone:res.data.user_phone
+            })
+          }
+        })
       }
     })
+    
   },
 
   /**

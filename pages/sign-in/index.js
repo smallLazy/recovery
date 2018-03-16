@@ -21,50 +21,72 @@ Page({
     var that = this;
     var data = e.detail.value;
     var phone = data.phone;
+    var vcode = data.vcode;
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
     if(phone.length == 0) {
       wx.showToast({
         title: '请输入手机号！',
-        icon:'success',
+        icon:'none',
         duration: 1500
       })
       return false;
-    }
-    if (phone.length != 11) {
+    }else if (phone.length != 11) {
+        wx.showToast({
+          title: '手机号长度有误！',
+          icon: 'none',
+          duration: 1500
+        })
+        return false;
+    } else if (!myreg.test(phone)) {
+        wx.showToast({
+          title: '手机号有误！',
+          icon: 'none',
+          duration: 1500
+        })
+        return false;
+    } else if (vcode.length == 0) {
       wx.showToast({
-        title: '手机号长度有误！',
+        title: '请输入验证码！',
         icon: 'none',
         duration: 1500
       })
       return false;
-    }
-    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
-    if (! myreg.test(phone)) {
-      wx.showToast({
-        title: '手机号有误！',
-        icon: 'success',
-        duration: 1500
-      })
-      return false;
-    }
-    wx.request({
-      url: 'https://www.lazyfei.top/api/user/check-login',
-      data: data,
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      method: 'POST',
-      success:function(res){
-        var data = res.data;
-        that.setData({
-          isLogin: true
-        });
-        if(data.code == 200) {
-          // console.log(that.data.isLogin)
-          var isLogin = that.data.isLogin;
-          wx.reLaunch({
-            url: "/pages/personal-center/index?isLogin="+isLogin
-          })
-        }
+      }else {
+        wx.request({
+          url: 'http://www.lazyfei.top/api/user/check-login',
+          data: data,
+          header: { 'content-type': 'application/x-www-form-urlencoded' },
+          method: 'POST',
+          success: function (res) {
+            var data = res.data;
+            that.setData({
+              isLogin: true
+            });
+            if (data.code == 200) {
+              var id = data.id;
+              wx.setStorage({
+                key: "id",
+                data: id
+              });
+              var isLogin = that.data.isLogin;
+              wx.showToast({
+                title: '登录成功',
+                icon: 'success',
+                duration: 1500
+              })
+              wx.reLaunch({
+                url: "/pages/personal-center/index?isLogin=" + isLogin
+              })
+            }
+          }
+        })
+        
+
       }
-    })
+    
+    
+    
+   
   },
 
   
