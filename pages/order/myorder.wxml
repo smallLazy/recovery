@@ -1,10 +1,63 @@
-<view class='content'>
-  <view class='order_main'>
-    <view >第一页面</view>
-    <view >第二页面</view>
-    <view >第三页面</view>
-  </view>
-
-
-
-</view>
+<!--导航条-->  
+<view class="navbar">  
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+</view>  
+<!--进行中-->  
+<view hidden="{{currentTab!==0}}" class='view_item' style='{{orderlist.length==0?"height:95%":""}}'> 
+  <view wx:if="{{orderlist.length==0}}" class='order_empty'>
+    <image src='./images/order.png' style='height:80rpx;width:80rpx;'></image>
+    <label class='lable1'>暂无订单</label>
+  </view> 
+  <view wx:else> 
+    <block  wx:for="{{orderlist}}">
+      <view class='order_item'>
+        <label  class='lable1'>{{item}}</label>
+        <label class='lable'>回收地址：上海市浦东新区蓝村路</label>
+        <label class='lable'>手机号：18326681282</label>
+        <label class='lable'>回收员：小懒  18326681282</label>
+        <label class='lable'>状态：<span class="red">回收员已接单，预计11:30到达</span></label>
+      </view>
+    </block>
+    <view style='height:30rpx;'></view>
+    </view>
+</view>  
+  
+<!--已完成-->  
+<view hidden="{{currentTab!==1}}" class='view_item' style='{{orderlist.length==0?"height:95%":""}}'>  
+<view wx:if="{{orderlist.length==0}}" class='order_empty'>
+    <image src='./images/order.png' style='height:80rpx;width:80rpx;'></image>
+    <label class='lable1'>暂无订单</label>
+  </view> 
+  <view wx:else> 
+   <block wx:for="{{orderlist}}">
+      <view class='order_item'>
+        <label  class='lable1'>{{item}}</label>
+        <label class='lable'>回收地址：上海市浦东新区蓝村路</label>
+        <label class='lable'>手机号：18326681282</label>
+        <label class='lable'>回收员：小懒  18326681282</label>
+        <label class='lable'>状态：已完成</label>
+      </view>
+    </block>
+    <view style='height:30rpx;'></view>
+    </view>
+</view>  
+  
+<!--已取消-->  
+<view hidden="{{currentTab!==2}}" class='view_item' style='{{orderlist.length==0?"height:95%":""}}'>  
+<view wx:if="{{orderlist.length==0}}" class='order_empty'>
+    <image src='./images/order.png' style='height:80rpx;width:80rpx;'></image>
+    <label class='lable1'>暂无订单</label>
+  </view> 
+  <view wx:else> 
+  <block wx:for="{{orderlist}}">
+      <view class='order_item'>
+        <label  class='lable1'>{{item}}</label>
+        <label class='lable'>回收地址：上海市浦东新区蓝村路</label>
+        <label class='lable'>手机号：18326681282</label>
+        <label class='lable'>回收员：无</label>
+        <label class='lable'>状态：无人接单</label>
+      </view>
+    </block>
+    <view style='height:30rpx;'></view>
+    </view>
+</view>  
