@@ -5,7 +5,7 @@
   <label class='login-button' bindtap='login' wx:else="{{!isLogin}}">未登录</label>   
 </view>
 <view class='content'>
-  <navigator class='nav-common' url='/pages/order/index' open-type='navigate'>
+  <navigator class='nav-common' url='/pages/order/myorder' open-type='navigate'>
     <image src='./images/order.png' style='width: 28px; height: 28px;'></image>
     <label>我的订单</label>
   </navigator>
