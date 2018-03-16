@@ -5,12 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // isLogin: false,
-    phone : ''
+    isLogin: false,
   },
   login:function() {
     wx.navigateTo({
-      url:"/pages/me/index"
+      url:"/pages/sign-in/index"
     })
   },
 
@@ -28,16 +27,17 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // var that = this;
-    // wx.request({
-    //   url: 'https://www.lazyfei.top/api/user/get-user-info',
-    //   success:function(res) {
-    //     that.setData({
-    //       phone:res.data.phone,
-    //       userName:res.data.user_name
-    //     })
-    //   }
-    // })
+    var that = this;
+    wx.request({
+      url: 'http://www.lazyfei.top/api/user/get-user-info',
+      success:function(res) {
+        console.log(res);
+        // that.setData({
+        //   phone:res.data.phone,
+        //   userName:res.data.user_name
+        // })
+      }
+    })
   },
 
   /**

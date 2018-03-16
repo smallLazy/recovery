@@ -1,7 +1,8 @@
-{
+﻿{
   "pages":[
-    
     "pages/unlogin/index",
+    "pages/sign-in/index",
+    "pages/personal-center/index",
     "pages/address/index",
     "pages/order/order",
     "pages/order/index",
@@ -30,7 +31,7 @@
         "selectedIconPath":"./images/recommend-sel.png"
       },
       {
-        "pagePath": "pages/unlogin/index",
+        "pagePath": "pages/personal-center/index",
         "text": "我的",
         "iconPath":"./images/me.png",
         "selectedIconPath": "./images/me-sel.png"

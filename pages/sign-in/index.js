@@ -15,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.setNavigationBarTitle({ title: '登录' });
   },
   formSubmit:function(e) {
     var that = this;
@@ -33,7 +34,7 @@ Page({
           // console.log(that.data.isLogin)
           var isLogin = that.data.isLogin;
           wx.reLaunch({
-            url: "/pages/unlogin/index?isLogin="+isLogin
+            url: "/pages/personal-center/index?isLogin="+isLogin
           })
         }
       }
@@ -46,6 +47,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
     // wx.login({
     //   success: function (res) {
     //     if (res.code) {
