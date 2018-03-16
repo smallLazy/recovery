@@ -1,0 +1,8 @@
+page{
+  background: #fff;
+}
+.order_main{
+  display: flex;
+  flex-direction: row;
+
+}

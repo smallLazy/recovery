@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/me/index",
+    
     "pages/unlogin/index",
     "pages/address/index",
     "pages/order/order",
@@ -9,7 +9,9 @@
     "pages/order/second",
     "pages/order/third",
     "pages/index/map",
-    "pages/feedback/index"
+    "pages/feedback/index",
+    "pages/order/myorder",
+    "pages/me/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

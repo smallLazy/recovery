@@ -1,0 +1,10 @@
+<view class='content'>
+  <view class='order_main'>
+    <view >第一页面</view>
+    <view >第二页面</view>
+    <view >第三页面</view>
+  </view>
+
+
+
+</view>
