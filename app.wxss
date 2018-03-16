@@ -50,3 +50,7 @@
   width: 50rpx;  
   height: 50rpx;  
 } 
+.line{
+  height: 1rpx;
+  background: #e4e4e4;
+}
