@@ -1,51 +1,42 @@
 <!--pages/order/order.wxml-->
 <view class='content'>
-  <form>
+  <form bindsubmit="formSubmit" bindreset="formReset">
     <view class='common'>
       <image src='./images/contacts.png' style='width:28px; height:28px;'></image>
-      <input type='text' placeholder='联系人'></input>
+      <input type='text' placeholder='联系人' name='name'></input>
     </view>
 
     <view class='common'>
       <image src='./images/phone.png' style='width:28px; height:28px;'></image>
-      <input type='number' placeholder='手机号'></input>
+      <input type='number' placeholder='手机号' name='phoneNo'></input>
     </view>
 
     <view class='common'>
       <image src='./images/address.png' style='width:28px; height:28px;'></image>
-      <input placeholder='收货地址' bindtap='getAdd' value="{{address}}"></input>
+      <input placeholder='收货地址' bindtap='getAdd' value="{{address}}" name='address'></input>
     </view>
 
     <view class='common'>
+      <image src='./images/address.png' style='width:28px; height:28px;'></image>
+      <input type='text' placeholder='详细地址(具体到门牌号)' name='adressDetila'></input>
+    </view>
+    <view class='common'>
       <image src='./images/remarks.png' style='width:28px; height:28px;'></image>
-      <input type='text' placeholder='订单备注'></input>
+      <input type='text' placeholder='订单备注' name='notes'></input>
     </view>
 
      <view class='common {{isDis}}'>
-      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange2" bindcolumnchange="bindMultiPickerColumnChange2" value="{{multiIndex}}" range="{{objectMultiArray}}" range-key="{{'name'}}">
         <view class="picker">
-           <image src='./images/date.png' style='width:28px; height:28px;'></image> 
-          {{date}}
+           <image src='./images/time.png' style='width:28px; height:28px;'></image> 
+           <input type='text' placeholder='预约时间' value='{{inputtext}}' name='time'></input>
         </view> 
       </picker>
     </view> 
-
-     <view class='common {{isDis}}'>
-      <picker mode="time" value="{{time}}" start="09:01" end="20:01" bindchange="bindTimeChange">
-        <view class="picker">
-          <image src='./images/time.png' style='width:28px; height:28px;'></image> 
-          {{time}}
-        </view>
-      </picker>
-    </view> 
-
+  <view class="ok-btn">
+      <button  formType='submit' class='submit'>{{btntext}}</button> <view class='bespeak' bindtap='bespeak'>预约</view>
+  </view>
   </form>
   
-  <view class="common ok-btn">
-      <button  class='submit'>立即回收</button>
-    </view>
-
-    <view class="common ok-btn">
-      <button  class='submit' bindtap='bespeak'>预约回收</button>
-    </view>
+  
 </view>

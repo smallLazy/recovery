@@ -1,13 +1,11 @@
 {
   "pages":[
+    "pages/order/order",
     "pages/sign-in/index",
     "pages/personal-center/index",
-    "pages/address/index",
-    "pages/order/order",
+    "pages/address/index", 
     "pages/order/index",
     "pages/index/index",
-    "pages/order/second",
-    "pages/order/third",
     "pages/index/map",
     "pages/feedback/index",
     "pages/order/myorder"
@@ -24,8 +22,8 @@
     "selectedColor": "#77e35c",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "首页",
+        "pagePath": "pages/order/order",
+        "text": "回收",
         "iconPath":"./images/recommend.png",
         "selectedIconPath":"./images/recommend-sel.png"
       },
