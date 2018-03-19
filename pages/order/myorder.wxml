@@ -16,6 +16,7 @@
         <label class='lable'>手机号：{{orderdata.user_phone}}</label>
         <label class='lable'>回收员：{{orderdata.rec_name}} {{orderdata.rec_phone}}</label>
         <label class='lable'>状态：<span class="red" wx:if="{{orderdata.status == 2}}"> 未被接单</span></label>
+        <label class='lable'>状态：<span class="red" wx:if="{{orderdata.status == 3}}"> 已接单未完成</span></label>
       </view>
     </block>
     <view style='height:30rpx;'></view>
