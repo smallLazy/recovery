@@ -1,14 +1,14 @@
-{
+﻿{
   "pages":[
     "pages/order/order",
-    "pages/sign-in/index",
     "pages/personal-center/index",
     "pages/address/index", 
     "pages/order/index",
     "pages/index/index",
     "pages/index/map",
     "pages/feedback/index",
-    "pages/order/myorder"
+    "pages/order/myorder",
+    "pages/sign-in/index"
     
   ],
   "window":{
