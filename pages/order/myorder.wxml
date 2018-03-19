@@ -12,10 +12,10 @@
     <block  wx:for="{{orderlist}}">
       <view class='order_item'>
         <label  class='lable1'>{{item}}</label>
-        <label class='lable'>回收地址：上海市浦东新区蓝村路</label>
-        <label class='lable'>手机号：18326681282</label>
-        <label class='lable'>回收员：小懒  18326681282</label>
-        <label class='lable'>状态：<span class="red">回收员已接单，预计11:30到达</span></label>
+        <label class='lable'>回收地址：{{orderdata.address}}</label>
+        <label class='lable'>手机号：{{orderdata.user_phone}}</label>
+        <label class='lable'>回收员：{{orderdata.rec_name}} {{orderdata.rec_phone}}</label>
+        <label class='lable'>状态：<span class="red" wx:if="{{orderdata.status == 2}}"> 未被接单</span></label>
       </view>
     </block>
     <view style='height:30rpx;'></view>
