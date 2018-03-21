@@ -66,11 +66,8 @@ Page({
   formSubmit:function(e){
     var that = this;
     if (that.checkInput(e)){
-      wx.showToast({
-        title: "提交成功",
-        icon: 'none',
-        duration: 1500
-      })
+      that.placeOrder(e);
+      
     }
   },
   checkInput(e){
@@ -118,6 +115,33 @@ Page({
       }
       return true;
     }
+  },
+
+  placeOrder(e){
+    var data = e.detail.value
+    wx.request({
+      url: 'http://www.lazyfei.top/api/order/place-an-order', 
+      method: 'POST',
+      data: {
+        user_id:1,
+        user_name: data.name,
+        user_phone: data.phoneNo,
+        address: data.address,
+        remarks: data.notes,
+        appointment_time:data.time
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res.data);
+        wx.showToast({
+          title: "提交成功",
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    })
   },
 
   /**
