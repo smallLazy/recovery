@@ -136,7 +136,7 @@ Page({
       success: function (res) {
         console.log(res.data);
         wx.showToast({
-          title: "提交成功",
+          title: "提交成功，请至我的订单查看详情",
           icon: 'none',
           duration: 1500
         })

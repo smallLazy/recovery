@@ -13,7 +13,7 @@
 
     <view class='common'>
       <image src='./images/address.png' style='width:28px; height:28px;'></image>
-      <input placeholder='收货地址' bindtap='getAdd' value="{{address}}" name='address'></input>
+      <input placeholder='收货地址' bindtap='getAdd' value="{{address}}" name='address' readonly='readonly' disabled='true'></input>
     </view>
 
     <view class='common'>
@@ -29,7 +29,7 @@
       <picker mode="multiSelector" bindchange="bindMultiPickerChange2" bindcolumnchange="bindMultiPickerColumnChange2" value="{{multiIndex}}" range="{{objectMultiArray}}" range-key="{{'name'}}">
         <view class="picker">
            <image src='./images/time.png' style='width:28px; height:28px;'></image> 
-           <input type='text' placeholder='预约时间' value='{{inputtext}}' name='time'></input>
+           <input type='text' placeholder='预约时间' value='{{inputtext}}' name='time' disabled='true'></input>
         </view> 
       </picker>
     </view> 

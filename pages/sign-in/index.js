@@ -2,7 +2,11 @@
 Page({
   data: {
     src: './images/logo.jpg',
-    isLogin: false
+    isLogin: false,
+    btnBackcolor: '#FCDFD1',
+    btnTextColor: '#887566',
+    textColor:'#b9b9b9'
+
   },
   
 
@@ -142,11 +146,24 @@ Page({
   onReachBottom: function () {
   
   },
-
+ 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
   
+  },
+
+  listenerPhoneInput:function(e){
+    var that=this;
+    var value = e.detail.value;
+    if(value.lenth==11){
+      that.setData({
+        textColor: '#F27430'
+      })
+    }
+  },
+  getVerifyingCode:function(){
+    console.log("aa");
   }
 })

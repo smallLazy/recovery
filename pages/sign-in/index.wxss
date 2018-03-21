@@ -10,17 +10,21 @@
 }
 .common{
   margin: 0 auto;
-  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
   height: 100rpx;
-  border: 1rpx solid #eee;
+  border: 1rpx solid #e4e4e4;
   font-size: 30rpx;
   margin-bottom: 40rpx;
   padding-left:40rpx;
+  color: "#333"；
 }
 .phone{
   width: 60%;
   height: 100rpx;
   float: left;
+  color: "#333"；
+
 }
 .tiao{
   float: left;
@@ -41,6 +45,8 @@
 .submit{
   width: 90%;
   margin: 0 auto;
-  background-color: #77e35c;
-  color: #fff;
+  border-radius: 0px
+}
+.phcolor{
+  color:#b9b9b9; 
 }
