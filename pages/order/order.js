@@ -55,7 +55,10 @@ Page({
       this.setData({
         isDis: 'no-display',
         inputtext:"",
-        btntext:"立即回收"
+        btntext:"立即回收",
+        time1:"",
+        time2: "",
+        time3: ""
       })
     }else{
       this.setData({
@@ -129,7 +132,7 @@ Page({
         user_id:1,
         user_name: data.name,
         user_phone: data.phoneNo,
-        address: data.address,
+        address: data.address + " " + data.adressDetila,
         remarks: data.notes,
         appointment_time_start: this.data.time1 + " " + this.data.time2,
         appointment_time_end: this.data.time1 + " " + this.data.time3
@@ -139,10 +142,28 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
+        if (res.data.code==200){
+          wx.showToast({
+            title: "提交成功",
+            icon: 'none',
+            duration: 1500
+          });
+          wx.navigateTo({
+            url: 'pages/order/myorder'
+          })
+        } else if (res.data.code == 20001){
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1500
+          })
+        }
+      },
+      fail: function (errMsg){
         wx.showToast({
-          title: "提交成功，请至我的订单查看详情",
+          title: "网络不好，请重试",
           icon: 'none',
-          duration: 2000
+          duration: 1500
         })
       }
     })

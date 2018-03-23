@@ -33,15 +33,6 @@
   color: #bfbfbf;
   margin: 0 10rpx;
 }
-#get_code{
-  display: block;
-  float: right;
-  width: 30%;
-  height: 100rpx;
-  line-height: 100rpx;
-  color: #bfbfbf;
-  font-size: 30rpx;
-}
 .submit{
   width: 90%;
   margin: 0 auto;
@@ -49,4 +40,12 @@
 }
 .phcolor{
   color:#b9b9b9; 
+}
+.code{
+  margin: 0 auto;
+  font-size: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content:center;
 }

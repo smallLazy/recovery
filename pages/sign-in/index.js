@@ -6,7 +6,10 @@ Page({
     btnBackcolor: '#FCDFD1',
     btnTextColor: '#887566',
     textColor:'#b9b9b9',
-    isClickable:false
+    isClickable:false,
+    codeText:"获取验证码",
+    btnClickable:false,
+    isClickable1: false,
   },
   
 
@@ -153,9 +156,28 @@ Page({
   onShareAppMessage: function () {
   
   },
+  listenerCodeInput:function(e){
+    var that = this;
+    var value = e.detail.value;
+    if (value.length == 4) {
+      that.data.isClickable1=true;
+    }else{
+      that.data.isClickable1 = false;
+    }
+    if (that.data.isClickable1 && that.data.isClickable){
+      that.setData({
+
+      })
+    }else{
+      that.setData({
+        btnBackcolor: '#FCDFD1',
+        btnTextColor: '#887566',
+        btnClickable:true
+      })
+    }
+  },
 
   listenerPhoneInput:function(e){
-    console.log()
     var that=this;
     var value = e.detail.value;
     if(value.length==11){
@@ -172,15 +194,39 @@ Page({
   },
   getVerifyingCode:function(){
     if (this.data.isClickable){
-      
+      this.countdown();
     }
   },
   countdown:function(){
+    wx.showToast({
+      title: '获取验证码成功',
+      icon: 'none',
+      duration: 1500
+    })
     var that = this;
     var count=60;
     that.setData({
-      textColor: '#b9b9b9',
-      isClickable: false
-    })
+      textColor: '#333',
+      isClickable: false,
+      codeText: count + "s"
+    });
+    count--;
+    var interval = setInterval(function () { 
+      if(count<0){
+        clearInterval(interval);
+        that.setData({
+          textColor: '#F27430',
+          codeText:'重新获取',
+          isClickable: true
+        })
+      }else{
+        that.setData({
+          textColor: '#333',
+          isClickable: false,
+          codeText:count+"s"
+        })
+      }
+      count--;
+    }.bind(this),1000)
   }
 })
