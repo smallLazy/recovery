@@ -5,8 +5,8 @@ Page({
     isLogin: false,
     btnBackcolor: '#FCDFD1',
     btnTextColor: '#887566',
-    textColor:'#b9b9b9'
-
+    textColor:'#b9b9b9',
+    isClickable:false
   },
   
 
@@ -155,15 +155,32 @@ Page({
   },
 
   listenerPhoneInput:function(e){
+    console.log()
     var that=this;
     var value = e.detail.value;
-    if(value.lenth==11){
+    if(value.length==11){
       that.setData({
-        textColor: '#F27430'
+        textColor: '#F27430',
+        isClickable:true
+      })
+    }else{
+      that.setData({
+        textColor: '#b9b9b9',
+        isClickable: false
       })
     }
   },
   getVerifyingCode:function(){
-    console.log("aa");
+    if (this.data.isClickable){
+      
+    }
+  },
+  countdown:function(){
+    var that = this;
+    var count=60;
+    that.setData({
+      textColor: '#b9b9b9',
+      isClickable: false
+    })
   }
 })

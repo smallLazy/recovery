@@ -24,8 +24,11 @@ Page({
       id: 2,
       name: util.getDateStr(false, 2) + "(后天)"
     }],
-    listTime: [{ id: 0, name: "9:00-11:00" }, { id: 1, name: "11:00-13:00" }, { id: 2, name: "13:00-15:00" }, { id: 3, name: "15:00-17:00" }, { id: 4, name: "17:00-19:00" }],
-    objectMultiArray: []
+    listTime: [{ id: 0, name: "9:00~11:00" }, { id: 1, name: "11:00~13:00" }, { id: 2, name: "13:00~15:00" }, { id: 3, name: "15:00~17:00" }, { id: 4, name: "17:00~19:00" }],
+    objectMultiArray: [],
+    time1:"",
+    time2: "",
+    time3: ""
   },
   /**
    * 获取地图地址返回到页面上
@@ -128,7 +131,8 @@ Page({
         user_phone: data.phoneNo,
         address: data.address,
         remarks: data.notes,
-        appointment_time:data.time
+        appointment_time_start: this.data.time1 + " " + this.data.time2,
+        appointment_time_end: this.data.time1 + " " + this.data.time3
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -138,7 +142,7 @@ Page({
         wx.showToast({
           title: "提交成功，请至我的订单查看详情",
           icon: 'none',
-          duration: 1500
+          duration: 2000
         })
       }
     })
@@ -176,9 +180,18 @@ Page({
     var that = this;
     var inxex1 = e.detail.value[0];
     var index2 = e.detail.value[1];
-    var str = this.data.objectMultiArray[0][inxex1].name +" — "+ this.data.objectMultiArray[1][index2].name;
+    var str1 = this.data.objectMultiArray[0][inxex1].name;
+    var str2 = this.data.objectMultiArray[1][index2].name;
+    var str = str1 + " " + str2;
+    var time1 = str1.substring(0,str1.length-4);
+    var tag = str2.indexOf("~");
+    var time2 = str2.substring(0, tag );
+    var time3 = str2.substring(tag + 1, str2.length);
     this.setData({
       inputtext:str,
+      time1:time1,
+      time2: time2,
+      time3:time3
     })
 
   },

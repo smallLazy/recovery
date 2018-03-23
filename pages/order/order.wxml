@@ -3,12 +3,12 @@
   <form bindsubmit="formSubmit" bindreset="formReset">
     <view class='common'>
       <image src='./images/contacts.png' style='width:28px; height:28px;'></image>
-      <input type='text' placeholder='联系人' name='name'></input>
+      <input type='text' placeholder='联系人' name='name' maxlength='10'></input>
     </view>
 
     <view class='common'>
-      <image src='./images/phone.png' style='width:28px; height:28px;'></image>
-      <input type='number' placeholder='手机号' name='phoneNo'></input>
+      <image src='./images/phone.png' style='width:28px; height:28px;' ></image>
+      <input type='number' placeholder='手机号' name='phoneNo' maxlength='11'></input>
     </view>
 
     <view class='common'>
@@ -18,11 +18,11 @@
 
     <view class='common'>
       <image src='./images/address.png' style='width:28px; height:28px;'></image>
-      <input type='text' placeholder='详细地址(具体到门牌号)' name='adressDetila'></input>
+      <input type='text' placeholder='详细地址(具体到门牌号)' name='adressDetila' maxlength='30'></input>
     </view>
     <view class='common'>
       <image src='./images/remarks.png' style='width:28px; height:28px;'></image>
-      <input type='text' placeholder='订单备注' name='notes'></input>
+      <input type='text' placeholder='订单备注' name='notes' maxlength='30'></input>
     </view>
 
      <view class='common {{isDis}}'>
