@@ -201,7 +201,7 @@ Page({
         wx.request({
           'url': 'http://www.lazyfei.top/api/login/get-phone-vcode', // 获取验证码接口
           data: {
-            phone: '17621861270', // 手机号
+            phone: that.data.phoneNo, // 手机号
           },
           header: { 'content-type': 'application/x-www-form-urlencoded' },
           method: 'POST',
