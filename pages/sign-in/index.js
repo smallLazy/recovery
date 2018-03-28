@@ -6,12 +6,11 @@ Page({
     btnBackcolor: '#FCDFD1',
     btnTextColor: '#887566',
     textColor: '#b9b9b9',
-    isClickable: false,
     codeText: "获取验证码",
     btnClickable: false,
-    isClickable1: false,
+    isClickable1: false, // 手机号输入框
     phoneNo: '',
-    isClickable2:false
+    isClickable2:false  // 验证码输入框
   },
 
 
@@ -46,7 +45,6 @@ Page({
             header: { 'content-type': 'application/x-www-form-urlencoded' },
             method: 'POST',
             success: function (res) {
-              console.log(res.data);
               var key = res.data.key;
               // 这里我的缓存是测试，用的是同步，你之后写的用异步
               wx.setStorageSync('acc_key', key); // 成功写入缓存             
@@ -87,17 +85,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-    // wx.login({
-    //   success: function (res) {
-    //     if (res.code) {
-    //       //发起网络请求    
-    //       console.log(res.code)
-    //     } else {
-    //       console.log('获取用户登录态失败！' + res.errMsg)
-    //     }
-    //   }
-    // });
   },
 
   /**
@@ -145,11 +132,11 @@ Page({
     var that = this;
     var value = e.detail.value;
     if (value.length == 6) {
-      that.data.isClickable1 = true;
+      that.data.isClickable2 = true;
     } else {
-      that.data.isClickable1 = false;
+      that.data.isClickable2 = false;
     }
-    if (that.data.isClickable1 && that.data.isClickable) {
+    if (that.data.isClickable1 && that.data.isClickable2) {
       that.setData({
         btnBackcolor: '#F16621',
         btnTextColor: '#ffffff',
@@ -171,6 +158,7 @@ Page({
       that.setData({
         textColor: '#F27430',
         isClickable: true,
+        isClickable1: true,
         phoneNo: value
       })
     } else if (that.isClickable){
@@ -181,8 +169,6 @@ Page({
     }
     if (that.data.isClickable1 && that.data.isClickable) {
       that.setData({
-        btnBackcolor: '#F16621',
-        btnTextColor: '#ffffff',
         btnClickable: true
       })
     } else {
@@ -206,7 +192,6 @@ Page({
           header: { 'content-type': 'application/x-www-form-urlencoded' },
           method: 'POST',
           success: function (res) {
-            console.log(res.data);
             if (res.data.code == 200) {
               wx.showToast({
                 title: '获取验证码成功',
