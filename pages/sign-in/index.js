@@ -9,6 +9,7 @@ Page({
     codeText: "获取验证码",
     btnClickable: false,
     isClickable1: false, // 手机号输入框
+    isClickable:true,
     phoneNo: '',
     isClickable2:false  // 验证码输入框
   },
