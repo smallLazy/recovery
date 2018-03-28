@@ -9,7 +9,7 @@
         <label class='tiao'> | </label>
          <a href="" id="get_code" style='color:{{textColor}}' bindtap="getVerifyingCode" class='code'>{{codeText}}</a> 
       </view>
-       <input name="vcode" class='common' type="number" placeholder='验证码' placeholder-class="phcolor" maxlength='4' bindinput="listenerCodeInput" /> 
+       <input name="vcode" class='common' type="number" placeholder='验证码' placeholder-class="phcolor" maxlength='6' bindinput="listenerCodeInput" /> 
     </view>
     <view class="btn-area">
       <button formType="submit" class='submit' style='background:{{btnBackcolor}};color:{{btnTextColor}}'>登录</button>

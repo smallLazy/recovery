@@ -144,7 +144,7 @@ Page({
   listenerCodeInput: function (e) {
     var that = this;
     var value = e.detail.value;
-    if (value.length == 4) {
+    if (value.length == 6) {
       that.data.isClickable1 = true;
     } else {
       that.data.isClickable1 = false;
