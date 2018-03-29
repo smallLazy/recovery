@@ -1,4 +1,4 @@
-﻿// pages/me/index.js
+// pages/me/index.js
 Page({
   data: {
     src: './images/logo.jpg',
@@ -55,6 +55,7 @@ Page({
             header: { 'content-type': 'application/x-www-form-urlencoded' },
             method: 'POST',
             success: function (res) {
+              console.log(res.data);
               var key = res.data.key;
               // 这里我的缓存是测试，用的是同步，你之后写的用异步
               wx.setStorageSync('acc_key', key); // 成功写入缓存             
@@ -75,7 +76,7 @@ Page({
                 })
               }
             },
-            fail:function(e){
+            fail: function (e) {
               wx.showToast({
                 title: "网络不好请重试~",
                 icon: 'success',
@@ -95,6 +96,17 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
+    // wx.login({
+    //   success: function (res) {
+    //     if (res.code) {
+    //       //发起网络请求    
+    //       console.log(res.code)
+    //     } else {
+    //       console.log('获取用户登录态失败！' + res.errMsg)
+    //     }
+    //   }
+    // });
   },
 
   /**
@@ -142,11 +154,11 @@ Page({
     var that = this;
     var value = e.detail.value;
     if (value.length == 6) {
-      that.data.isClickable2 = true;
+      that.data.isClickable1 = true;
     } else {
-      that.data.isClickable2 = false;
+      that.data.isClickable1 = false;
     }
-    if (that.data.isClickable1 && that.data.isClickable2) {
+    if (that.data.isClickable1 && that.data.isClickable) {
       that.setData({
         btnBackcolor: '#F16621',
         btnTextColor: '#ffffff',
@@ -165,12 +177,11 @@ Page({
     var that = this;
     var value = e.detail.value;
     if (value.length == 11) {
-      that.setData({ 
+      that.setData({
         isClickable: true,
-        isClickable1: true,
         phoneNo: value
       })
-      if (that.data.isClickable2){
+      if (that.data.isClickable2) {
         that.setData({
           textColor: '#F27430'
         })
@@ -179,14 +190,16 @@ Page({
       that.setData({
         isClickable: false
       })
-      if (that.data.isClickable2){
+      if (that.data.isClickable2) {
         that.setData({
           textColor: '#b9b9b9'
-          })
+        })
       }
     }
     if (that.data.isClickable1 && that.data.isClickable) {
       that.setData({
+        btnBackcolor: '#F16621',
+        btnTextColor: '#ffffff',
         btnClickable: true
       })
     } else {
@@ -210,6 +223,7 @@ Page({
           header: { 'content-type': 'application/x-www-form-urlencoded' },
           method: 'POST',
           success: function (res) {
+            console.log(res.data);
             if (res.data.code == 200) {
               wx.showToast({
                 title: '获取验证码成功',
@@ -233,7 +247,7 @@ Page({
             })
           }
 
-        })       
+        })
       } else {
         wx.showToast({
           title: '手机号输入有误！',
@@ -255,20 +269,20 @@ Page({
     var interval = setInterval(function () {
       if (count < 0) {
         clearInterval(interval);
-        if (!that.data.isClickable){
+        if (!that.data.isClickable) {
           that.setData({
             textColor: '#b9b9b9',
             codeText: '重新获取',
             isClickable2: true
           })
-        }else{
+        } else {
           that.setData({
             textColor: '#F27430',
             codeText: '重新获取',
             isClickable2: true
           })
         }
-        
+
       } else {
         that.setData({
           textColor: '#333',
