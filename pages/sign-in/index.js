@@ -1,4 +1,4 @@
-// pages/me/index.js
+﻿// pages/me/index.js
 Page({
   data: {
     src: './images/logo.jpg',
@@ -55,7 +55,6 @@ Page({
             header: { 'content-type': 'application/x-www-form-urlencoded' },
             method: 'POST',
             success: function (res) {
-              console.log(res.data);
               var key = res.data.key;
               // 这里我的缓存是测试，用的是同步，你之后写的用异步
               wx.setStorageSync('acc_key', key); // 成功写入缓存             
@@ -96,17 +95,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-    // wx.login({
-    //   success: function (res) {
-    //     if (res.code) {
-    //       //发起网络请求    
-    //       console.log(res.code)
-    //     } else {
-    //       console.log('获取用户登录态失败！' + res.errMsg)
-    //     }
-    //   }
-    // });
   },
 
   /**
@@ -154,11 +142,11 @@ Page({
     var that = this;
     var value = e.detail.value;
     if (value.length == 6) {
-      that.data.isClickable1 = true;
+      that.data.isClickable2 = true;
     } else {
-      that.data.isClickable1 = false;
+      that.data.isClickable2 = false;
     }
-    if (that.data.isClickable1 && that.data.isClickable) {
+    if (that.data.isClickable1 && that.data.isClickable2) {
       that.setData({
         btnBackcolor: '#F16621',
         btnTextColor: '#ffffff',
@@ -179,6 +167,7 @@ Page({
     if (value.length == 11) {
       that.setData({ 
         isClickable: true,
+        isClickable1: true,
         phoneNo: value
       })
       if (that.data.isClickable2){
@@ -198,8 +187,6 @@ Page({
     }
     if (that.data.isClickable1 && that.data.isClickable) {
       that.setData({
-        btnBackcolor: '#F16621',
-        btnTextColor: '#ffffff',
         btnClickable: true
       })
     } else {
@@ -223,7 +210,6 @@ Page({
           header: { 'content-type': 'application/x-www-form-urlencoded' },
           method: 'POST',
           success: function (res) {
-            console.log(res.data);
             if (res.data.code == 200) {
               wx.showToast({
                 title: '获取验证码成功',
