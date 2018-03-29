@@ -6,12 +6,12 @@ Page({
     btnBackcolor: '#FCDFD1',
     btnTextColor: '#887566',
     textColor: '#b9b9b9',
-    isClickable: false,
+    isClickable: false,   //手机号输入框是否正确
     codeText: "获取验证码",
     btnClickable: false,
-    isClickable1: false,
+    isClickable1: false,  //验证码输入框是否正确
     phoneNo: '',
-    isClickable2:false
+    isClickable2: true    //验证码是否不处在倒计时
   },
 
 
@@ -33,6 +33,15 @@ Page({
     }
     var phoneNo = e.detail.value.phone;
     var vcode = e.detail.value.vcode;
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    if (!myreg.test(this.data.phoneNo)) {
+      wx.showToast({
+        title: '手机号输入有误！',
+        icon: 'none',
+        duration: 1500
+      })
+      return;
+    }
     wx.login({
       success: function (res) {
         if (res.code) {
@@ -168,16 +177,24 @@ Page({
     var that = this;
     var value = e.detail.value;
     if (value.length == 11) {
-      that.setData({
-        textColor: '#F27430',
+      that.setData({ 
         isClickable: true,
         phoneNo: value
       })
-    } else if (that.isClickable){
+      if (that.data.isClickable2){
+        that.setData({
+          textColor: '#F27430'
+        })
+      }
+    } else {
       that.setData({
-        textColor: '#b9b9b9',
         isClickable: false
       })
+      if (that.data.isClickable2){
+        that.setData({
+          textColor: '#b9b9b9'
+          })
+      }
     }
     if (that.data.isClickable1 && that.data.isClickable) {
       that.setData({
@@ -195,7 +212,7 @@ Page({
   },
   getVerifyingCode: function () {
     var that = this;
-    if (that.data.isClickable) {
+    if (that.data.isClickable && that.data.isClickable2) {
       var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
       if (myreg.test(that.data.phoneNo)) {
         wx.request({
@@ -241,16 +258,11 @@ Page({
     }
   },
   countdown: function () {
-    wx.showToast({
-      title: '获取验证码成功',
-      icon: 'none',
-      duration: 1500
-    })
     var that = this;
     var count = 60;
     that.setData({
       textColor: '#333',
-      isClickable: false,
+      isClickable2: false,
       codeText: count + "s"
     });
     count--;
@@ -274,7 +286,6 @@ Page({
       } else {
         that.setData({
           textColor: '#333',
-          isClickable2: false,
           codeText: count + "s"
         })
       }
