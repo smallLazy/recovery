@@ -1,7 +1,8 @@
 <view class="content">
   <view class='login'>
-    <image src="{{src}}"></image>
+    <image src="{{src}}" style='width:128px; height:100px;'></image>
   </view>
+  <label class='wx_name'>ONE KEY RECOVERY</label>
   <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="section">
       <view class='common'>

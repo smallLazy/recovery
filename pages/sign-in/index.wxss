@@ -1,12 +1,23 @@
-/* pages/me/index.wxss */
+/* pages/sign-in/index.wxss */
 .login{
-  width: 30%;
+  width: 35%;
   height: 220rpx;
   margin: 60rpx auto;
 }
 .login image{
   width: 200rpx;
   height: 200rpx;
+}
+.wx_name{
+  display: block;
+  width: 90%;
+  margin:0 auto 40rpx auto;
+  text-align: center;
+  line-height: 100rpx;
+  color:#77e35c;
+  height: 100rpx;
+
+  /* background-color: #eee; */
 }
 .common{
   margin: 0 auto;

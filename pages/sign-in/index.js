@@ -1,7 +1,7 @@
 // pages/sigin-in/index.js
 Page({
   data: {
-    src: './images/logo.jpg',
+    src: './images/logo.png',
     isLogin: false,
     btnBackcolor: '#d2f7a8',
     btnTextColor: 'gray',
