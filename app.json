@@ -1,7 +1,7 @@
 {
   "pages":[
     "pages/sign-in/index",
-    "pages/order/order",
+    "pages/order/place_order",
     "pages/personal-center/index",
     "pages/address/index", 
     "pages/order/index",
@@ -23,7 +23,7 @@
     "selectedColor": "#77e35c",
     "list": [
       {
-        "pagePath": "pages/order/order",
+        "pagePath": "pages/order/place_order",
         "text": "回收",
         "iconPath":"./images/recommend.png",
         "selectedIconPath":"./images/recommend-sel.png"

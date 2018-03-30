@@ -36,7 +36,7 @@
 .submit{
   width: 90%;
   margin: 0 auto;
-  border-radius: 0px
+  border-radius: 5px
 }
 .phcolor{
   color:#b9b9b9; 

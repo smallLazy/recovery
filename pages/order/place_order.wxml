@@ -1,4 +1,4 @@
-<!--pages/order/order.wxml-->
+<!--pages/order/place_order.wxml-->
 <view class='content'>
   <form bindsubmit="formSubmit" bindreset="formReset">
     <view class='common'>

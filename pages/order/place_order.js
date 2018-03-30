@@ -1,4 +1,4 @@
-// pages/order/order.js
+// pages/order/place_order.js
 var util = require('../../utils/util.js');
 Page({
 

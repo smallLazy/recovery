@@ -1,10 +1,10 @@
-// pages/me/index.js
+// pages/sigin-in/index.js
 Page({
   data: {
     src: './images/logo.jpg',
     isLogin: false,
-    btnBackcolor: '#FCDFD1',
-    btnTextColor: '#887566',
+    btnBackcolor: '#d2f7a8',
+    btnTextColor: 'gray',
     textColor: '#b9b9b9',
     isClickable: false,   //手机号输入框是否正确
     codeText: "获取验证码",
@@ -160,14 +160,14 @@ Page({
     }
     if (that.data.isClickable1 && that.data.isClickable) {
       that.setData({
-        btnBackcolor: '#F16621',
+        btnBackcolor: '#77e35c',
         btnTextColor: '#ffffff',
         btnClickable: true
       })
     } else {
       that.setData({
-        btnBackcolor: '#FCDFD1',
-        btnTextColor: '#887566',
+        btnBackcolor: '#d2f7a8',
+        btnTextColor: 'gray',
         btnClickable: false
       })
     }
@@ -183,7 +183,7 @@ Page({
       })
       if (that.data.isClickable2) {
         that.setData({
-          textColor: '#F27430'
+          textColor: '#77e35c'
         })
       }
     } else {
@@ -198,14 +198,14 @@ Page({
     }
     if (that.data.isClickable1 && that.data.isClickable) {
       that.setData({
-        btnBackcolor: '#F16621',
+        btnBackcolor: '#77e35c',
         btnTextColor: '#ffffff',
         btnClickable: true
       })
     } else {
       that.setData({
-        btnBackcolor: '#FCDFD1',
-        btnTextColor: '#887566',
+        btnBackcolor: '#d2f7a8',
+        btnTextColor: 'gray',
         btnClickable: false
       })
     }
@@ -277,7 +277,7 @@ Page({
           })
         } else {
           that.setData({
-            textColor: '#F27430',
+            textColor: '#77e35c',
             codeText: '重新获取',
             isClickable2: true
           })
