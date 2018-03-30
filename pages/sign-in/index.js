@@ -23,11 +23,23 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (options) {   
+    var key = wx.getStorageSync('acc_key');
+    if (key != null && key!=""){
+      wx.switchTab({
+        url: '../../pages/order/place_order'
+      });
+      return;
+    }
     wx.setNavigationBarTitle({ title: '登录' });
-
+  
   },
-  formSubmit: function (e) {
+  formSubmit: function (e) {    
+    // wx.setStorageSync('acc_key', '123');
+    // wx.switchTab({
+    //   url: '../../pages/order/place_order'
+    // });
+    // return;
     if (!this.data.btnClickable) {
       return;
     }
@@ -58,7 +70,9 @@ Page({
               console.log(res.data);
               var key = res.data.key;
               // 这里我的缓存是测试，用的是同步，你之后写的用异步
-              wx.setStorageSync('acc_key', key); // 成功写入缓存             
+              wx.setStorageSync('acc_key', key); // 成功写入缓存    
+              wx.setStorageSync('user_id', res.data.id);
+                    
               if (res.data.code == 200) {
                 wx.showToast({
                   title: '登录成功',
@@ -66,7 +80,7 @@ Page({
                   duration: 1500
                 })
                 wx.switchTab({
-                  url: '../../pages/order/order'
+                  url: '../../pages/order/place_order'
                 });
               } else {
                 wx.showToast({
@@ -96,17 +110,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-    // wx.login({
-    //   success: function (res) {
-    //     if (res.code) {
-    //       //发起网络请求    
-    //       console.log(res.code)
-    //     } else {
-    //       console.log('获取用户登录态失败！' + res.errMsg)
-    //     }
-    //   }
-    // });
+    
   },
 
   /**

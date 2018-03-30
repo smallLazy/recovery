@@ -48,6 +48,18 @@ Page({
     
   },
 
+  backLogin:function(e){
+    wx.removeStorageSync('acc_key');
+    wx.removeStorageSync('user_id'); 
+    wx.showToast({
+      title: '已退出登录',
+      icon: 'success',
+      duration: 1500
+    }) 
+    wx.navigateTo({
+      url: "/pages/sign-in/index"
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

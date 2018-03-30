@@ -130,6 +130,7 @@ Page({
       method: 'POST',
       data: {
         user_id:1,
+        key: wx.getStorageSync('acc_key'),
         user_name: data.name,
         user_phone: data.phoneNo,
         address: data.address + " " + data.adressDetila,

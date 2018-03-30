@@ -17,9 +17,9 @@
     <image src='./images/notice.png' style='width: 28px; height: 28px;'></image>
     <label>系统通知</label>
   </navigator>
-  <navigator class='nav-common'>
+  <navigator class='nav-common' bindtap='backLogin'>
     <image src='./images/setting.png' style='width: 28px; height: 28px;'></image>
-    <label>更多设置</label>
+    <label>退出登录</label>
   </navigator>
   <navigator class='nav-common' url='/pages/feedback/index' open-type='navigate'>
     <image src='./images/customer.png'  style='width: 28px; height: 28px;'></image>
