@@ -129,7 +129,7 @@ Page({
       url: 'http://www.lazyfei.top/api/order/place-an-order', 
       method: 'POST',
       data: {
-        user_id:1,
+        user_id: wx.getStorageSync('user_id'),
         key: wx.getStorageSync('acc_key'),
         user_name: data.name,
         user_phone: data.phoneNo,

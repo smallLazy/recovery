@@ -56,7 +56,7 @@ Page({
       icon: 'success',
       duration: 1500
     }) 
-    wx.navigateTo({
+    wx.redirectTo({
       url: "/pages/sign-in/index"
     })
   },
