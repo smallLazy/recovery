@@ -4,22 +4,24 @@ const app = getApp()
 
 Page({
   data: {
+    order: [],
+    orderdata:[]
     //
-    polyline: [{
-      points: [{
-        longitude: '116.481451',
-        latitude: '40.006822'
-      }, {
-        longitude: '116.487847',
-        latitude: '40.002607'
-      }, {
-        longitude: '116.496507',
-        latitude: '40.006103'
-      }],
-      color: "#FF0000DD",
-      width: 3,
-      dottedLine: true
-    }],
+    // polyline: [{
+    //   points: [{
+    //     longitude: '116.481451',
+    //     latitude: '40.006822'
+    //   }, {
+    //     longitude: '116.487847',
+    //     latitude: '40.002607'
+    //   }, {
+    //     longitude: '116.496507',
+    //     latitude: '40.006103'
+    //   }],
+    //   color: "#FF0000DD",
+    //   width: 3,
+    //   dottedLine: true
+    // }],
     },
   //事件处理函数
   bindViewTap: function() {
@@ -46,6 +48,20 @@ Page({
       // })
   },
   onLoad: function () {
+    var that = this;
+    wx.request({
+      url: 'http://www.lazyfei.top/api/order/order-list',
+      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      method: 'POST',
+      success: function(res) {
+        that.setData({
+          orderdata: res.data
+        })
+        // console.log(orderdata);
+        
+      }
+
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

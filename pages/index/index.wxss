@@ -8,14 +8,12 @@ page{
 .banner{
   width: 100%;
 }
-.collector-list{
+.order-list{
   width: 100%;
-  height: 320rpx;
-  background-color: #fff; 
   margin: 20rpx auto;
   color: gray;
 }
-.collector-title{
+.order-title{
   display: block;
   width: 100%;
   height: 90rpx;
@@ -23,26 +21,33 @@ page{
   text-indent: 2rem;
   font-size: 30rpx;
 }
-.collector-title .more{
-  float: right;
-  margin-right: 10%;
-}
-.collector-list .collector-common{
-  width: 30%;
-  height: 320rpx;
+
+.order-list .order-common{
+  width: 100%;
+  /* height: 450rpx; */
   float: left;
   margin-left: 2%;
   text-align: center;
 }
-.collector-common image{
-  width: 64px;
-  height: 64px; 
-  margin: 0 auto;
-  background-color: #eee;
-  border-radius: 50%;
+
+.order-item{
+  margin-bottom: 40rpx;
+  background-color: #fff;
+  height: 450rpx;
 }
-.collector-common label{
+.order-item label{
   display: block;
-  width: 100%;
   font-size: 30rpx;
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-indent: 1rem;
+}
+.order-item button{
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: 40rpx;
+  background-color: #77e35c;
+  color: #fff;
 }

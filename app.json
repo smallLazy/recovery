@@ -1,11 +1,12 @@
 {
   "pages":[
+    "pages/index/index",
     "pages/sign-in/index",
     "pages/order/place_order",
     "pages/personal-center/index",
     "pages/address/index", 
     "pages/order/index",
-    "pages/index/index",
+    
     "pages/index/map",
     "pages/feedback/index",
     "pages/order/myorder"
@@ -22,6 +23,12 @@
     "color": "#000",
     "selectedColor": "#77e35c",
     "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./images/recommend.png",
+        "selectedIconPath": "./images/recommend-sel.png"
+      },
       {
         "pagePath": "pages/order/place_order",
         "text": "回收",
