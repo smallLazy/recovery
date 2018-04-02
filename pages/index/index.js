@@ -29,6 +29,28 @@ Page({
       url: '../logs/logs'
     })
   },
+  receiveOrder:function(e) {
+    var order_id = e.target.id
+    wx.request({
+      url: 'http://www.lazyfei.top/api/order/receive-order',
+      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      method: 'POST',
+      data:{
+        rec_id:wx.getStorageSync('user_id'),
+        key: wx.getStorageSync('acc_key'),
+        order_id: order_id, // （订单的id）
+      },
+      success: function (res) {
+        if (res.data.code == 200) {
+          wx.showToast({
+            title: "接单成功",
+            icon: 'success',
+            duration: 1500
+          });
+        }
+      }
+    })
+  },
   // 焦点事件
   getAddress: function (e) {
     wx.navigateTo({
