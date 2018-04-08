@@ -58,13 +58,11 @@ Page({
             header: { 'content-type': 'application/x-www-form-urlencoded' },
             method: 'POST',
             success: function (res) {
-              console.log(res.data);
-              var key = res.data.key;
-              // 这里我的缓存是测试，用的是同步，你之后写的用异步
-              wx.setStorageSync('acc_key', key); // 成功写入缓存    
-              wx.setStorageSync('user_id', res.data.id);
-              wx.setStorageSync('user_status', res.data.user_status);
+              console.log(res.data);          
               if (res.data.code == 200) {
+                wx.setStorageSync('acc_key', res.data.key); // 成功写入缓存    
+                wx.setStorageSync('user_id', res.data.id);
+                wx.setStorageSync('user_status', res.data.user_status);
                 wx.showToast({
                   title: '登录成功',
                   icon: 'success',

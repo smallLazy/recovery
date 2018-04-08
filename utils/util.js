@@ -113,7 +113,7 @@ function trim(str) {
 }   
 
 function getCodeMsg(msg){
-  var strMsg;
+  var strMsg='请求错误';
   switch(msg){
     case 'ILLEGAL_REQUEST':
       strMsg='非法请求'
@@ -150,7 +150,7 @@ function getCodeMsg(msg){
       break;
     case 'SET_FAILED':
       strMsg = '写入数据库失败'
-      break;
+      break;   
   }
-    
+  return strMsg;
 }

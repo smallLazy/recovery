@@ -182,12 +182,20 @@ Page({
   onLoad: function (options) {
     var that = this;
     user_status = wx.getStorageSync('user_status');// 0 普通用户，1回收员，2 大客户   
-    if (user_status == 0) {
+    if (user_status == 1) {
       wx.setNavigationBarTitle({ title: '接收订单' });
+      wx.setTabBarItem({
+        index: 0,
+        text: '接单'
+      })
     } else {
       wx.setNavigationBarTitle({ title: '发布订单' });
       that.setData({
         isPlace: false,
+      })
+      wx.setTabBarItem({
+        index: 0,
+        text: '回收'
       })
     }
     
