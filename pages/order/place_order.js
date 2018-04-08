@@ -188,15 +188,16 @@ Page({
         index: 0,
         text: '接单'
       })
-    } else {
-      wx.setNavigationBarTitle({ title: '发布订单' });
       that.setData({
         isPlace: false,
       })
+    } else {
+      wx.setNavigationBarTitle({ title: '发布订单' });  
       wx.setTabBarItem({
         index: 0,
         text: '回收'
       })
+      
     }
     
     
