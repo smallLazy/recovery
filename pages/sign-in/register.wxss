@@ -1,0 +1,62 @@
+/* pages/sign-in/index.wxss */
+.login{
+  width: 35%;
+  height: 220rpx;
+  margin: 60rpx auto;
+}
+.login image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.wx_name{
+  display: block;
+  width: 90%;
+  margin:0 auto 40rpx auto;
+  text-align: center;
+  line-height: 100rpx;
+  color:#77e35c;
+  height: 100rpx;
+
+  /* background-color: #eee; */
+}
+.common{
+  margin: 0 auto;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 100rpx;
+  border: 1rpx solid #e4e4e4;
+  font-size: 30rpx;
+  margin-bottom: 40rpx;
+  padding-left:40rpx;
+  color: "#333"；
+}
+.phone{
+  width: 60%;
+  height: 100rpx;
+  float: left;
+  color: "#333"；
+
+}
+.tiao{
+  float: left;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #bfbfbf;
+  margin: 0 10rpx;
+}
+.submit{
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 5px
+}
+.phcolor{
+  color:#b9b9b9; 
+}
+.code{
+  margin: 0 auto;
+  font-size: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content:center;
+}

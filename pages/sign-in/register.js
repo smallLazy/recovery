@@ -1,4 +1,3 @@
-// pages/sigin-in/index.js
 var util = require('../../utils/util.js');
 Page({
   data: {
@@ -15,31 +14,63 @@ Page({
     isClickable2: true    //验证码是否不处在倒计时
   },
 
+
+  /**
+   * 页面的初始数据
+   */
+
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {   
-    var that = this;
-    var key = wx.getStorageSync('acc_key');  
-    if (key != null && key!=""){
+  onLoad: function (options) {
+    var key = wx.getStorageSync('acc_key');
+    if (key != null && key != "") {
       wx.switchTab({
         url: '../../pages/order/place_order'
       });
       return;
     }
-    wx.setNavigationBarTitle({ title: '登录' });
+    wx.setNavigationBarTitle({ title: '收货员注册' });
+
   },
-  formSubmit: function (e) {    
+  formSubmit: function (e) {
+    // wx.setStorageSync('acc_key', '123');
+    // wx.switchTab({
+    //   url: '../../pages/order/place_order'
+    // });
+    // return;
     if (!this.data.btnClickable) {
       return;
     }
-    var that=this;
     var phoneNo = e.detail.value.phone;
     var vcode = e.detail.value.vcode;
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
     if (!myreg.test(this.data.phoneNo)) {
       wx.showToast({
         title: '手机号输入有误！',
+        icon: 'none',
+        duration: 1500
+      })
+      return;
+    }
+    var that = this;
+    var data = e.detail.value;
+    var user_name = data.user_name;
+    var idcard = data.idcard;
+    var adress = data.adress;
+    if (util.isEmpty(user_name) && util.isEmpty(idcard) && util.isEmpty(adress)) {
+      if (!util.IdCardValidate(idcard)){
+        wx.showToast({
+          title: '身份证格式不正确',
+          icon: 'none',
+          duration: 1500
+        })
+        return;
+      }
+    } else {
+      wx.showToast({
+        title: '请完善个人信息',
         icon: 'none',
         duration: 1500
       })
@@ -53,18 +84,19 @@ Page({
             data: {
               code: res.code, // 必须传递
               phone: phoneNo, // 手机号
-              vcode: vcode  // y验证码
+              vcode: vcode, // y验证码
+              idcard: idcard,
+              user_name: user_name,
+              // adress: adress
             },
             header: { 'content-type': 'application/x-www-form-urlencoded' },
             method: 'POST',
             success: function (res) {
-              console.log(res.data);
-              var key = res.data.key;
-              // 这里我的缓存是测试，用的是同步，你之后写的用异步
-              wx.setStorageSync('acc_key', key); // 成功写入缓存    
-              wx.setStorageSync('user_id', res.data.id);
-              wx.setStorageSync('user_status', res.data.user_status);
+              console.log(res.data);            
               if (res.data.code == 200) {
+                wx.setStorageSync('acc_key', res.data.key);
+                wx.setStorageSync('user_id', res.data.id);
+                wx.setStorageSync('user_status', res.data.user_status);
                 wx.showToast({
                   title: '登录成功',
                   icon: 'success',
@@ -100,8 +132,8 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {  
-    
+  onReady: function () {
+
   },
 
   /**
@@ -252,10 +284,22 @@ Page({
       }
     }
   },
-  register: function () {
-    wx.navigateTo({
-      url: '../../pages/sign-in/register',
-    })
+  checkRegister: function (e) {
+    var that = this;
+    var data = e.detail.value;
+    var user_name = data.user_name;
+    var idcard = data.idcard;
+    var adress = data.adress;
+    if (util.isEmpty(user_name) && util.isEmpty(idcard) && util.isEmpty(adress)){
+      return true;
+    }else{
+      wx.showToast({
+        title: '请完善个人信息',
+        icon: 'none',
+        duration: 1500
+      })
+      return false;
+    }
   },
   countdown: function () {
     var that = this;
@@ -291,9 +335,6 @@ Page({
       }
       count--;
     }.bind(this), 1000)
-  },
-  
+  }
 }
-
- 
 )

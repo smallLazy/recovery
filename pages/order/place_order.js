@@ -1,11 +1,13 @@
 // pages/order/place_order.js
 var util = require('../../utils/util.js');
+var user_status;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    isPlace:true,
     btntext:"立即回收",
     isouttime:false,
     multiIndex:0,
@@ -28,7 +30,11 @@ Page({
     objectMultiArray: [],
     time1:"",
     time2: "",
-    time3: ""
+    time3: "",
+
+
+    order: [],
+    orderdata: []
   },
   /**
    * 获取地图地址返回到页面上
@@ -129,8 +135,8 @@ Page({
       url: 'http://www.lazyfei.top/api/order/place-an-order', 
       method: 'POST',
       data: {
-        user_id: wx.getStorageSync('user_id'),
         key: wx.getStorageSync('acc_key'),
+        user_id: wx.getStorageSync('user_id'),       
         user_name: data.name,
         user_phone: data.phoneNo,
         address: data.address + " " + data.adressDetila,
@@ -152,9 +158,9 @@ Page({
           wx.navigateTo({
             url: 'pages/order/myorder'
           })
-        } else if (res.data.code == 20001){
+        } else {
           wx.showToast({
-            title: res.data.msg,
+            title: util.getCodeMsg(res.data.msg),
             icon: 'none',
             duration: 1500
           })
@@ -175,28 +181,17 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    wx.setNavigationBarTitle({ title: '订单详情' });
-    var hours = util.getHours();
-    var list2 ;
-    if(hours<9){
-      list2 = that.data.listTime;
-    }else if(hours<11){
-      list2 = that.data.listTime.slice(1);
-    }else if(hours<13){
-      list2 = that.data.listTime.slice(2);
-    }else if(hours<15){
-      list2 = that.data.listTime.slice(3);
-    }else if(hours<17){
-      list2 = that.data.listTime.slice(4);
-    }else{
-      list2 = that.data.listTime.slice(5);
-      that.data.isouttime=true;
+    user_status = wx.getStorageSync('user_status');// 0 普通用户，1回收员，2 大客户   
+    if (user_status == 0) {
+      wx.setNavigationBarTitle({ title: '接收订单' });
+    } else {
+      wx.setNavigationBarTitle({ title: '发布订单' });
+      that.setData({
+        isPlace: false,
+      })
     }
-    var list1 = that.data.listData;
-    that.data.listTime1 = list2;
-    this.setData({
-      objectMultiArray: [list1, list2]
-    })
+    
+    
   },
   bindMultiPickerChange2:function(e){
     var that = this;
@@ -239,7 +234,41 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    var that = this;
+    if (user_status == 0) {
+      var hours = util.getHours();
+      var list2;
+      if (hours < 9) {
+        list2 = that.data.listTime;
+      } else if (hours < 11) {
+        list2 = that.data.listTime.slice(1);
+      } else if (hours < 13) {
+        list2 = that.data.listTime.slice(2);
+      } else if (hours < 15) {
+        list2 = that.data.listTime.slice(3);
+      } else if (hours < 17) {
+        list2 = that.data.listTime.slice(4);
+      } else {
+        list2 = that.data.listTime.slice(5);
+        that.data.isouttime = true;
+      }
+      var list1 = that.data.listData;
+      that.data.listTime1 = list2;
+      this.setData({
+        objectMultiArray: [list1, list2]
+      })
+    } else {
+      wx.request({
+        url: 'http://www.lazyfei.top/api/order/order-list',
+        header: { 'content-type': 'application/x-www-form-urlencoded' },
+        method: 'POST',
+        success: function (res) {
+          that.setData({
+            orderdata: res.data
+          })
+        }
+      })
+    }
   },
 
   /**
@@ -283,5 +312,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
 })

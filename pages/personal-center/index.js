@@ -7,11 +7,6 @@ Page({
   data: {
     isLogin: false,
   },
-  login:function() {
-    wx.navigateTo({
-      url:"/pages/sign-in/index"
-    })
-  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -49,14 +44,13 @@ Page({
   },
 
   backLogin:function(e){
-    wx.removeStorageSync('acc_key');
-    wx.removeStorageSync('user_id'); 
+    wx.clearStorageSync();
     wx.showToast({
       title: '已退出登录',
-      icon: 'success',
+      icon: 'none',
       duration: 1500
     }) 
-    wx.redirectTo({
+    wx.reLaunch({
       url: "/pages/sign-in/index"
     })
   },

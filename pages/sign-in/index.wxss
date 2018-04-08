@@ -60,3 +60,12 @@
   display: flex;
   justify-content:center;
 }
+.register{
+  display: block;
+  width: 90%;
+  margin:0 auto 40rpx auto;
+  text-align: center;
+  font-size: 30rpx;
+  color:#b9b9b9; 
+  margin-top: 100rpx;
+}

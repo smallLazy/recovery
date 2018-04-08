@@ -16,4 +16,5 @@
       <button formType="submit" class='submit' style='background:{{btnBackcolor}};color:{{btnTextColor}}'>登录</button>
     </view>
   </form>
+  <label class='register' bindtap='register'>回收员注册</label>
 </view>

@@ -1,0 +1,22 @@
+<view class="content">
+
+  <label class='wx_name'>ONE KEY RECOVERY</label>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+
+      <input name="vcode" class='common' type="text" placeholder='姓名' placeholder-class="phcolor" maxlength='6' name='user_name' />
+      <input name="vcode" class='common' type="idcard" placeholder='身份证号' placeholder-class="phcolor" maxlength='18' name='idcard' />
+      <input name="vcode" class='common' type="text" placeholder='现居住住址' placeholder-class="phcolor" name='adress' />
+    </view>
+
+    <view class='common'>
+      <input name="phone" class="phone" type='number' placeholder="手机号" placeholder-class="phcolor" maxlength='11' bindinput="listenerPhoneInput" />
+      <label class='tiao'> | </label>
+      <a href="" id="get_code" style='color:{{textColor}}' bindtap="getVerifyingCode" class='code'>{{codeText}}</a>
+    </view>
+    <input name="vcode" class='common' type="number" placeholder='验证码' placeholder-class="phcolor" maxlength='6' bindinput="listenerCodeInput" />
+    <view class="btn-area">
+      <button formType="submit" class='submit' style='background:{{btnBackcolor}};color:{{btnTextColor}}'>收货员注册</button>
+    </view>
+  </form>
+</view>
