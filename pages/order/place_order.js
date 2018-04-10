@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isPlace:true,
+    isPlace: wx.getStorageSync('user_status')==0,
     btntext:"立即回收",
     isouttime:false,
     multiIndex:0,
@@ -188,9 +188,6 @@ Page({
         index: 0,
         text: '接单'
       })
-      that.setData({
-        isPlace: false,
-      })
     } else {
       wx.setNavigationBarTitle({ title: '发布订单' });  
       wx.setTabBarItem({
@@ -270,8 +267,13 @@ Page({
       wx.request({
         url: 'http://www.lazyfei.top/api/order/order-list',
         header: { 'content-type': 'application/x-www-form-urlencoded' },
+        data: {
+          key: wx.getStorageSync('acc_key'),
+          user_id: wx.getStorageSync('user_id')
+          },
         method: 'POST',
         success: function (res) {
+          console.log('ss'+res.data);
           that.setData({
             orderdata: res.data
           })

@@ -63,6 +63,7 @@ Page({
                 wx.setStorageSync('acc_key', res.data.key); // 成功写入缓存    
                 wx.setStorageSync('user_id', res.data.id);
                 wx.setStorageSync('user_status', res.data.user_status);
+                wx.setStorageSync('phone_no', '183****1292');
                 wx.showToast({
                   title: '登录成功',
                   icon: 'success',

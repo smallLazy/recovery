@@ -6,13 +6,17 @@ Page({
    */
   data: {
     isLogin: false,
+    phone:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({ title: '个人中心' });      
+    wx.setNavigationBarTitle({ title: '个人中心' });   
+    this.setData({
+      phone:wx.getStorageSync('phone_no')
+    })   
   },
 
   /**
