@@ -1,11 +1,11 @@
-// pages/unlogin/index.js
+var util = require('../../utils/util.js');
+var isLogin = !util.isEmpty(wx.getStorageSync('user_id'));
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    isLogin: false,
+    isLogin: isLogin,
     phone:'',
   },
 
@@ -52,6 +52,13 @@ Page({
     wx.reLaunch({
       url: "/pages/sign-in/index"
     })
+  },
+  checklogin:function(){
+    if(!isLogin){
+      wx.navigateTo({
+        url: '../../pages/sign-in/index',
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面显示

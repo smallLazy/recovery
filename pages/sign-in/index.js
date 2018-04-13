@@ -18,15 +18,16 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {   
-    var that = this;
-    var key = wx.getStorageSync('acc_key');  
-    if (key != null && key!=""){
-      wx.switchTab({
-        url: '../../pages/order/place_order'
+  onLoad: function (options) {
+    var type = options.type;
+    if(type==1){
+      wx.showToast({
+        title: '请先登录',
+        icon:"none",
+        duration:1000
       });
-      return;
-    }
+    }   
+    var that = this;
     wx.setNavigationBarTitle({ title: '登录' });
   },
   formSubmit: function (e) {    

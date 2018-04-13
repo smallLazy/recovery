@@ -59,7 +59,7 @@ Page({
     var user_name = data.user_name;
     var idcard = data.idcard;
     var adress = data.adress;
-    if (util.isEmpty(user_name) && util.isEmpty(idcard) && util.isEmpty(adress)) {
+    if (!util.isEmpty(user_name) && !util.isEmpty(idcard) && !util.isEmpty(adress)) {
       if (!util.IdCardValidate(idcard)){
         wx.showToast({
           title: '身份证格式不正确',
@@ -290,7 +290,7 @@ Page({
     var user_name = data.user_name;
     var idcard = data.idcard;
     var adress = data.adress;
-    if (util.isEmpty(user_name) && util.isEmpty(idcard) && util.isEmpty(adress)){
+    if (!util.isEmpty(user_name) && !util.isEmpty(idcard) && !util.isEmpty(adress)){
       return true;
     }else{
       wx.showToast({

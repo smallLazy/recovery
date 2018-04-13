@@ -49,7 +49,7 @@ function getHours(){
 }
 
 function isEmpty(str){
-  if(str!=""&&str!=null){
+  if(str==""||str==null){
     return true;
   }
   return false;

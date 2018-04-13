@@ -1,13 +1,13 @@
 // pages/order/place_order.js
 var util = require('../../utils/util.js');
-var user_status;
+var user_status=wx.getStorageSync('user_status');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isPlace: wx.getStorageSync('user_status')==0,
+    isPlace: util.isEmpty(user_status)|| user_status!=1,
     btntext:"立即回收",
     isouttime:false,
     multiIndex:0,
@@ -181,7 +181,8 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    user_status = wx.getStorageSync('user_status');// 0 普通用户，1回收员，2 大客户   
+    user_status = wx.getStorageSync('user_status');// 0 普通用户，1回收员，2 大客户  
+
     if (user_status == 1) {
       wx.setNavigationBarTitle({ title: '接收订单' });
       wx.setTabBarItem({
@@ -294,7 +295,7 @@ Page({
         rec_id: wx.getStorageSync('user_id'),
         order_id: orderId
       },
-      method: 'POST',
+      method: 'POST', 
       success: function (res) {
         if (res.data.code == 200) {
           wx.showToast({
@@ -307,13 +308,20 @@ Page({
     })
 
   },
-
+  inputtap:function(){
+    if (util.isEmpty(wx.getStorageSync('user_id'))){
+     
+      wx.navigateTo({
+        url: '../../pages/sign-in/index?type=1',
+      })
+    }
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
