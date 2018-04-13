@@ -12,11 +12,10 @@
     <block  wx:for="{{orderlist}}">
       <view class='order_item'>
         <label  class='lable1'>{{item}}</label>
-        <label class='lable'>回收地址：{{orderdata.address}}</label>
-        <label class='lable'>手机号：{{orderdata.user_phone}}</label>
-        <label class='lable'>回收员：{{orderdata.rec_name}} {{orderdata.rec_phone}}</label>
-        <label class='lable'>状态：<span class="red" wx:if="{{orderdata.status == 2}}"> 未被接单</span></label>
-        <label class='lable'>状态：<span class="red" wx:if="{{orderdata.status == 3}}"> 已接单未完成</span></label>
+        <label class='lable'>回收地址：{{item.address}}</label>
+        <label class='lable'>手机号：{{item.user_phone}}</label>
+        <label class='lable'>回收员：{{item.rec_phone}} {{item.rec_phone}}</label>
+        <label class='lable'>状态：<span class="red"> {{item.status == 0?'等待回收员接单中...':'回收员已接单'}}</span></label>
       </view>
     </block>
     <view style='height:30rpx;'></view>
@@ -24,19 +23,19 @@
 </view>  
   
 <!--已完成-->  
-<view hidden="{{currentTab!==1}}" class='view_item' style='{{orderlist.length==0?"height:95%":""}}'>  
-<view wx:if="{{orderlist.length==0}}" class='order_empty'>
+<view hidden="{{currentTab!==1}}" class='view_item' style='{{orderlist1.length==0?"height:95%":""}}'>  
+<view wx:if="{{orderlist1.length==0}}" class='order_empty'>
     <image src='./images/order.png' style='height:80rpx;width:80rpx;'></image>
     <label class='lable1'>暂无订单</label>
   </view> 
   <view wx:else> 
-   <block wx:for="{{orderlist}}">
+   <block wx:for="{{orderlist1}}">
       <view class='order_item'>
         <label  class='lable1'>{{item}}</label>
-        <label class='lable'>回收地址：上海市浦东新区蓝村路</label>
-        <label class='lable'>手机号：18326681282</label>
-        <label class='lable'>回收员：小懒  18326681282</label>
-        <label class='lable'>状态：已完成</label>
+        <label class='lable'>回收地址：{{item.address}}</label>
+        <label class='lable'>手机号：{{item.user_phone}}</label>
+        <label class='lable'>回收员：{{item.rec_phone}} {{item.rec_phone}}</label>
+        <label class='lable'>状态：<span class="red">已完成</span></label>
       </view>
     </block>
     <view style='height:30rpx;'></view>
@@ -44,19 +43,19 @@
 </view>  
   
 <!--已取消-->  
-<view hidden="{{currentTab!==2}}" class='view_item' style='{{orderlist.length==0?"height:95%":""}}'>  
-<view wx:if="{{orderlist.length==0}}" class='order_empty'>
+<view hidden="{{currentTab!==2}}" class='view_item' style='{{orderlist2.length==0?"height:95%":""}}'>  
+<view wx:if="{{orderlist2.length==0}}" class='order_empty'>
     <image src='./images/order.png' style='height:80rpx;width:80rpx;'></image>
     <label class='lable1'>暂无订单</label>
   </view> 
   <view wx:else> 
-  <block wx:for="{{orderlist}}">
+  <block wx:for="{{orderlist2}}">
       <view class='order_item'>
-        <label  class='lable1'>{{item}}</label>
-        <label class='lable'>回收地址：上海市浦东新区蓝村路</label>
-        <label class='lable'>手机号：18326681282</label>
-        <label class='lable'>回收员：无</label>
-        <label class='lable'>状态：无人接单</label>
+         <label  class='lable1'>{{item}}</label>
+        <label class='lable'>回收地址：{{item.address}}</label>
+        <label class='lable'>手机号：{{item.user_phone}}</label>
+        <label class='lable'>回收员：{{item.rec_phone}} {{item.rec_phone}}</label>
+        <label class='lable'>状态：<span class="red">已取消</span></label>
       </view>
     </block>
     <view style='height:30rpx;'></view>

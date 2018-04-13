@@ -49,11 +49,6 @@ Page({
 
   backLogin:function(e){
     wx.clearStorageSync();
-    wx.showToast({
-      title: '已退出登录',
-      icon: 'none',
-      duration: 1500
-    }) 
     wx.reLaunch({
       url: "/pages/sign-in/index"
     })

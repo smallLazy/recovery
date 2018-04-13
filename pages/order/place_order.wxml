@@ -55,7 +55,7 @@
           <label class='lable'>手机号：{{item.user_phone}}</label>
           <label class='lable'>收货地址：{{item.address}}</label>
           <label class='lable'>备注：{{item.remarks}}</label>
-          <button bindtap='receiveOrder'>接单</button>
+          <button bindtap='receiveOrder' data-hi='{{item.id}}'>接单</button>
         </view>
       </block>
     </view>

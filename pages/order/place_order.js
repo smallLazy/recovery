@@ -273,22 +273,41 @@ Page({
           },
         method: 'POST',
         success: function (res) {
-          console.log('ss'+res.data);
-          that.setData({
-            orderdata: res.data
-          })
+          console.log("data:" + res.data.orderlist);
+          if (res.data.code==200){
+            that.setData({
+              orderdata: res.data.orderlist
+            })
+          }         
         }
       })
     }
   },
+  receiveOrder: function (event){
+    var orderId = event.currentTarget.dataset.hi; 
+    console.log("orderId:" + orderId);
+    wx.request({
+      url: 'http://www.lazyfei.top/api/order/receive-order',
+      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: {
+        key: wx.getStorageSync('acc_key'),
+        rec_id: wx.getStorageSync('user_id'),
+        order_id: orderId
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.code == 200) {
+          wx.showToast({
+            title: '接单成功',
+            icon:null,
+            duration:1500
+          })
+        }
+      }
+    })
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-   
-    
   },
+
 
   /**
    * 生命周期函数--监听页面隐藏
