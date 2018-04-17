@@ -1,0 +1,14 @@
+<form bindsubmit="formSubmit">
+  <view class='content'>
+    <label>收货人：</label><input type='text' name='uname'></input>
+    <label>联系电话：</label><input type='text' name='phone'></input>
+    <picker mode="region" bindchange="bindRegionChange">
+      <view class="picker">
+        <label>所在地区：</label>
+        <input type='text' name='add' value='{{region[0]}}{{region[1]}}{{region[2]}}' placeholder='请选择 > '></input> 
+      </view> 
+    </picker>
+    <input class='add_detail' name='detail_add' type='text' placeholder='详细地址'></input>
+    <button formType='submit'>保存</button>
+  </view>
+</form>

@@ -33,7 +33,9 @@ App({
       placeOrder: "http://www.lazyfei.top/api/" + "order/place-an-order",
       getOrder: "http://www.lazyfei.top/api/" + "order/order-list",
       myOrder: "http://www.lazyfei.top/api/" + "order/order-list",
-      getVerifyingCode:"http://www.lazyfei.top/api/"+"login/get-phone-vcode"
+      getVerifyingCode:"http://www.lazyfei.top/api/"+"login/get-phone-vcode",
+      getAddress:"http://www.lazyfei.top/api/"+"address/show",
+      addAddress:"http://www.lazyfei.top/api/"+ "address/add"
     }
   },
   onShow:function(){
