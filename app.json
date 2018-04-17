@@ -1,4 +1,5 @@
 {
+
   "pages":[
     "pages/address/index",
     "pages/address/add",
@@ -7,24 +8,19 @@
    
     
     "pages/sign-in/index",
-    "pages/sign-in/register",  
+    "pages/sign-in/register",
     "pages/index/index",
-    
     "pages/personal-center/index",
-     
     "pages/order/index",
     "pages/index/map",
     "pages/feedback/index",
-    
     "pages/order/myorder"
-    
-    
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "test",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#000",
@@ -36,11 +32,10 @@
         "iconPath": "./images/recommend.png",
         "selectedIconPath": "./images/recommend-sel.png"
       },
-      
       {
         "pagePath": "pages/personal-center/index",
         "text": "我的",
-        "iconPath":"./images/me.png",
+        "iconPath": "./images/me.png",
         "selectedIconPath": "./images/me-sel.png"
       }
     ]

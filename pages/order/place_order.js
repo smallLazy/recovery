@@ -2,7 +2,7 @@
 var util = require('../../utils/util.js');
 var app = getApp();
 var httpEngine = require('../../utils/netUtil/HttpEngine.js');
-var user_status=wx.getStorageSync('user_status');
+var user_status;
 Page({
 
   /**
@@ -157,7 +157,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoad');
+    user_status = wx.getStorageSync('user_status');
     var that = this;
+    that.setData({
+      isPlace: util.isEmpty(user_status) || user_status != 1
+    });
     user_status = wx.getStorageSync('user_status');// 0 普通用户，1回收员，2 大客户  
 
     if (user_status == 1) {
@@ -218,6 +223,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    console.log("onReady");
     var that = this;
     if (user_status == 0) {
       var hours = util.getHours();
@@ -328,4 +334,7 @@ Page({
   onShareAppMessage: function () {
   
   },
+  onShow:function(){
+    
+  }
 })

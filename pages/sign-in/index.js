@@ -50,7 +50,7 @@ Page({
     }
     wx.login({
       success: function (res) {
-        httpEngine.executePost(app.globalData.urls.loginUrl, { code: res.code, phone: phoneNo, vcode: vcode, wechat_number:"111"}, function (data){    
+        httpEngine.executePost(app.globalData.urls.loginUrl, { code: res.code, phone: phoneNo, vcode: vcode}, function (data){   
             wx.setStorageSync('acc_key', data.key); // 成功写入缓存    
             wx.setStorageSync('user_id', data.id);
             wx.setStorageSync('user_status', data.user_status);
@@ -59,10 +59,10 @@ Page({
               title: '登录成功',
               icon: 'success',
               duration: 1500
-            })
+            }) 
             wx.switchTab({
-              url: '../../pages/order/place_order'
-            });
+              url: '../../pages/order/place_order',
+            });         
          },null,null)
       }
     })
