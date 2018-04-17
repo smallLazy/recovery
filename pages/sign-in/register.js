@@ -1,4 +1,6 @@
 var util = require('../../utils/util.js');
+var app = getApp();
+var httpEngine = require('../../utils/netUtil/HttpEngine.js');
 Page({
   data: {
     src: './images/logo.png',
@@ -78,51 +80,25 @@ Page({
     }
     wx.login({
       success: function (res) {
-        if (res.code) {
-          wx.request({
-            'url': 'http://www.lazyfei.top/api/login/to-login', // 登录接口
-            data: {
-              code: res.code, // 必须传递
-              phone: phoneNo, // 手机号
-              vcode: vcode, // y验证码
-              idcard: idcard,
-              user_name: user_name,
-              // adress: adress
-            },
-            header: { 'content-type': 'application/x-www-form-urlencoded' },
-            method: 'POST',
-            success: function (res) {
-              console.log(res.data);            
-              if (res.data.code == 200) {
-                wx.setStorageSync('acc_key', res.data.key);
-                wx.setStorageSync('user_id', res.data.id);
-                wx.setStorageSync('user_status', res.data.user_status);
-                wx.showToast({
-                  title: '登录成功',
-                  icon: 'success',
-                  duration: 1500
-                })
-                wx.switchTab({
-                  url: '../../pages/order/place_order'
-                });
-              } else {
-                wx.showToast({
-                  title: util.getCodeMsg(res.data.msg),
-                  icon: 'none',
-                  duration: 1500
-                })
-              }
-            },
-            fail: function (e) {
-              wx.showToast({
-                title: "网络不好请重试~",
-                icon: 'success',
-                duration: 1500
-              })
-            }
-
-          })
-        }
+        httpEngine.executePost(app.globalData.urls.loginUrl, {
+          code: res.code,
+          phone: phoneNo,
+          vcode: vcode,
+          idcard: idcard,
+          user_name: user_name},
+          function(data){
+            wx.setStorageSync('acc_key', res.data.key);
+            wx.setStorageSync('user_id', res.data.id);
+            wx.setStorageSync('user_status', res.data.user_status);
+            wx.showToast({
+              title: '登录成功',
+              icon: 'success',
+              duration: 1500
+            })
+            wx.switchTab({
+              url: '../../pages/order/place_order'
+            });
+          },null,null);
       }
     })
   },
@@ -242,39 +218,14 @@ Page({
     if (that.data.isClickable && that.data.isClickable2) {
       var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
       if (myreg.test(that.data.phoneNo)) {
-        wx.request({
-          'url': 'http://www.lazyfei.top/api/login/get-phone-vcode', // 获取验证码接口
-          data: {
-            phone: that.data.phoneNo, // 手机号
-          },
-          header: { 'content-type': 'application/x-www-form-urlencoded' },
-          method: 'POST',
-          success: function (res) {
-            console.log(res.data);
-            if (res.data.code == 200) {
-              wx.showToast({
-                title: '获取验证码成功',
-                icon: 'success',
-                duration: 1500
-              })
-              that.countdown();
-            } else {
-              wx.showToast({
-                title: res.data.msg,
-                icon: 'none',
-                duration: 1500
-              })
-            }
-          },
-          fail: function (e) {
-            wx.showToast({
-              title: "网络不好请重试~",
-              icon: 'none',
-              duration: 1500
-            })
-          }
-
-        })
+        httpEngine.executePost(app.globalData.urls.getVerifyingCode, { phone: that.data.phoneNo},function(data){
+          wx.showToast({
+            title: '获取验证码成功',
+            icon: 'success',
+            duration: 1500
+          })
+          that.countdown();
+        },null,null)
       } else {
         wx.showToast({
           title: '手机号输入有误！',

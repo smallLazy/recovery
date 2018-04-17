@@ -1,46 +1,89 @@
 
 
 module.exports = {
-  webCall: webCall
+  executePost: executePost
 }
 /**
    * 接口公共访问方法
    * @param {Object} urlPath 访问路径
    * @param {Object} params 访问参数（json格式）
-   * @param {Object} requestCode 访问码，返回处理使用
    * @param {Object} onSuccess 成功回调
    * @param {Object} onErrorBefore 失败回调
    * @param {Object} onComplete 请求完成（不管成功或失败）回调
-   * @param {Object} isVerify 是否验证重复提交
-   * @param {Object} requestType 请求类型（默认POST）
-   * @param {Object} retry 访问失败重新请求次数（默认1次）
    */
-function executePost (urlPath, params, requestCode, onSuccess, onErrorBefore, onComplete, isVerify, requestType, retry) {
+function executePost (urlPath, params, onSuccess, onErrorBefore, onComplete) {
   wx.request({
-    url: that.apiHost + urlPath,
+    url: urlPath,
     data: params,
-    method: requestType, // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-    header: {
-      'content-type': requestType == 'POST' ?
-        'application/x-www-form-urlencoded' : 'application/json'
-    }, // 设置请求的 header
+    method: 'POST',
+    header: { 'content-type': 'application/x-www-form-urlencoded' },
     success: function (res) {
-      console.log("返回结果：" + JSON.stringify(res.data));
-      if (res.data) {
-        if (res.data.statusCode == 200) { //访问成功
-          onSuccess(res.data, requestCode);
-        } else if (res.data.statusCode == 300000001) { // 未登录
-          that.isLogin = false;
-          onErrorBefore(0, res.data.message, requestCode);
-        } else {
-          onErrorBefore(0, res.data.message == null ? "请求失败 , 请重试" : res.data.message, requestCode);
+      if(res.data.code==200){
+        onSuccess(res.data);
+      }else{
+        if (onErrorBefore!=null){
+          onErrorBefore(res.data);
+          return;
         }
-      } else {
-        onErrorBefore(0, "请求失败 , 请重试", requestCode);
+        wx.showToast({
+          title: this.getCodeMsg(res.data.msg),
+          icon:'none',
+          duration:1000 
+        });
       }
     },
     fail: function (res) {
-      
+      wx.showToast({
+        title: "网络不好请重试~",
+        icon: 'none',
+        duration: 1000
+      })
+    },
+    complete:function(res){
+
     }
   })
+}
+
+function getCodeMsg(msg) {
+  var strMsg = '请求错误';
+  switch (msg) {
+    case 'ILLEGAL_REQUEST':
+      strMsg = '非法请求'
+      break;
+    case 'MISSING_PARAMETER':
+      strMsg = '必填项为空（手机号）'
+      break;
+    case 'UNCATCH_VCODE':
+      strMsg = '一分钟内无法再次获取验证码'
+      break;
+    case 'ILLEGAL_LENGTH':
+      strMsg = '长度不对（11位）'
+      break;
+    case 'ILLEGAL_FORMAT':
+      strMsg = '手机号格式不对'
+      break;
+    case 'SEND_FAILED':
+      strMsg = '短信发送失败'
+      break;
+    case 'SET_FAILED':
+      strMsg = '验证码写入数据库失败'
+      break;
+    case 'MISSING_PARAMETER':
+      strMsg = '必填项为空'
+      break;
+    case 'EXPIRED':
+      strMsg = '验证过期'
+      break;
+    case 'ILLEGAL_FORMA':
+      strMsg = '身份证号格式不对'
+      break;
+    case 'REQUEST_WX_INTERFACE_FAILED':
+      strMsg = '请求微信登录态接口失败'
+      break;
+    case 'SET_FAILED':
+      strMsg = '写入数据库失败'
+      break;
+  }
+  return strMsg;
 }

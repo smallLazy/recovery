@@ -27,7 +27,14 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    urls:{
+      loginUrl: "http://www.lazyfei.top/api/" + "login/to-login",
+      placeOrder: "http://www.lazyfei.top/api/" + "order/place-an-order",
+      getOrder: "http://www.lazyfei.top/api/" + "order/order-list",
+      myOrder: "http://www.lazyfei.top/api/" + "order/order-list",
+      getVerifyingCode:"http://www.lazyfei.top/api/"+"login/get-phone-vcode"
+    }
   },
   onShow:function(){
 

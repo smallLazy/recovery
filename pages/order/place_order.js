@@ -1,5 +1,7 @@
 // pages/order/place_order.js
 var util = require('../../utils/util.js');
+var app = getApp();
+var httpEngine = require('../../utils/netUtil/HttpEngine.js');
 var user_status=wx.getStorageSync('user_status');
 Page({
 
@@ -131,49 +133,24 @@ Page({
 
   placeOrder(e){
     var data = e.detail.value
-    wx.request({
-      url: 'http://www.lazyfei.top/api/order/place-an-order', 
-      method: 'POST',
-      data: {
-        key: wx.getStorageSync('acc_key'),
-        user_id: wx.getStorageSync('user_id'),       
-        user_name: data.name,
-        user_phone: data.phoneNo,
-        address: data.address + " " + data.adressDetila,
-        remarks: data.notes,
-        appointment_time_start: this.data.time1 + " " + this.data.time2,
-        appointment_time_end: this.data.time1 + " " + this.data.time3
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        console.log(res.data);
-        if (res.data.code==200){
-          wx.showToast({
-            title: "提交成功",
-            icon: 'none',
-            duration: 1500
-          });
-          wx.navigateTo({
-            url: 'pages/order/myorder'
-          })
-        } else {
-          wx.showToast({
-            title: util.getCodeMsg(res.data.msg),
-            icon: 'none',
-            duration: 1500
-          })
-        }
-      },
-      fail: function (errMsg){
+    httpEngine.executePost(app.globalData.urls.placeOrder, {
+      key: wx.getStorageSync('acc_key'),
+      user_id: wx.getStorageSync('user_id'),
+      user_name: data.name,
+      user_phone: data.phoneNo,
+      address: data.address + " " + data.adressDetila,
+      remarks: data.notes,
+      appointment_time_start: this.data.time1 + " " + this.data.time2,
+      appointment_time_end: this.data.time1 + " " + this.data.time3},function(res){
         wx.showToast({
-          title: "网络不好，请重试",
+          title: "提交成功",
           icon: 'none',
           duration: 1500
+        });
+        wx.navigateTo({
+          url: 'myorder'
         })
-      }
-    })
+      },null,null);
   },
 
   /**

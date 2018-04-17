@@ -1,3 +1,5 @@
+var app = getApp();
+var httpEngine = require('../../utils/netUtil/HttpEngine.js');
 Page({
   /**
    * 页面的初始数据
@@ -36,33 +38,25 @@ Page({
     getOrderList:function(status){
       var that = this;
       wx.setNavigationBarTitle({ title: '订单详情' });
-      wx.request({
-        url: 'http://www.lazyfei.top/api/order/order-list',
-        data: {
-          key: wx.getStorageSync('acc_key'),
-          user_id: wx.getStorageSync('user_id'),
-          status: status
-        },
-        header: { 'content-type': 'application/x-www-form-urlencoded' },
-        method: 'POST',
-        success: function (res) {
-          console.log(res.data);
-          if (status==0){
+      httpEngine.executePost(app.globalData.urls.myOrder, {
+        key: wx.getStorageSync('acc_key'),
+        user_id: wx.getStorageSync('user_id'),
+        status: status},
+        function(data){
+          if (status == 0) {
             that.setData({
-              orderlist: res.data.orderlist
+              orderlist: data.orderlist
             });
-          }else if(status==2){
+          } else if (status == 2) {
             that.setData({
-              orderlist1: res.data.orderlist
+              orderlist1: data.orderlist
             });
-          }else if(status==3){
+          } else if (status == 3) {
             that.setData({
-              orderlist2: res.data.orderlist
+              orderlist2: data.orderlist
             });
           }
-
-        }
-      })
+        },null,null)
     }
 })
   
