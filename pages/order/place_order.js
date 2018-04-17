@@ -248,48 +248,27 @@ Page({
         objectMultiArray: [list1, list2]
       })
     } else {
-      wx.request({
-        url: 'http://www.lazyfei.top/api/order/order-list',
-        header: { 'content-type': 'application/x-www-form-urlencoded' },
-        data: {
-          key: wx.getStorageSync('acc_key'),
-          user_id: wx.getStorageSync('user_id')
-          },
-        method: 'POST',
-        success: function (res) {
-          console.log("data:" + res.data.orderlist);
-          if (res.data.code==200){
-            that.setData({
-              orderdata: res.data.orderlist
-            })
-          }         
-        }
-      })
+      httpEngine.executePost(app.globalData.urls.getOrder, {
+        key: wx.getStorageSync('acc_key'),
+        user_id: wx.getStorageSync('user_id')},function(data){
+          that.setData({
+            orderdata: data.orderlist
+          })
+        },null,null);
     }
   },
   receiveOrder: function (event){
     var orderId = event.currentTarget.dataset.hi; 
-    console.log("orderId:" + orderId);
-    wx.request({
-      url: 'http://www.lazyfei.top/api/order/receive-order',
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: {
-        key: wx.getStorageSync('acc_key'),
-        rec_id: wx.getStorageSync('user_id'),
-        order_id: orderId
-      },
-      method: 'POST', 
-      success: function (res) {
-        if (res.data.code == 200) {
-          wx.showToast({
-            title: '接单成功',
-            icon:null,
-            duration:1500
-          })
-        }
-      }
-    })
-
+    httpEngine.executePost(app.globalData.urls.receiveOrder, {
+      key: wx.getStorageSync('acc_key'),
+      rec_id: wx.getStorageSync('user_id'),
+      order_id: orderId},function(data){
+        wx.showToast({
+          title: '接单成功',
+          icon: 'none',
+          duration: 1500
+        })
+      },null,null);
   },
   inputtap:function(){
     if (util.isEmpty(wx.getStorageSync('user_id'))){
