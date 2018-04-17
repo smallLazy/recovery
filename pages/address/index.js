@@ -19,14 +19,21 @@ Page({
 
   // 删除地址
   delAddress:function(e) {
+    var id = e.target.id;
     wx.showModal({
-      title: '注意',
       content: '您确认要删除？',
       success: function (res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          httpEngine.executePost(app.globalData.urls.delAddress, {
+            key: wx.getStorageSync('acc_key'),
+            userid: wx.getStorageSync('user_id'),
+            id:id,
+          }, function (res) {
+            // TODO 刷新
+          }, null, null);
+
         } else if (res.cancel) {
-          console.log('用户点击取消')
+          return false;
         }
       }
     })
