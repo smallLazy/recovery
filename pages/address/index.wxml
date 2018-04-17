@@ -12,7 +12,7 @@
         <label class='my-add'>收货地址：{{item.address}}</label> 
         <view class='operate'>
           <label bindtap='editAddress'>编辑</label>
-          <label bindtap='delAddress'>删除</label>
+          <label bindtap='delAddress' id="{{item.id}}">删除</label>
         </view>
       </view>
     </block>
