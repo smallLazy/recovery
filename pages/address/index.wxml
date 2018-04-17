@@ -1,21 +1,23 @@
-<view wx:if="{{addresslist.length==0}}" class='address_empty'>
-  <image src='./images/order.png' style='height:80rpx;width:80rpx;'></image>
-  <label class='lable1'>暂无地址</label>
-</view>
-  <block  wx:for="{{addresslist}}">
-    <view class='address'>
-      <label class="username">小懒</label>
-      <label class="phone">12345678901</label>
-      <label class='my-add'>上海虹口大柏树</label> 
-      <view class='operate'>
-        <label>编辑</label>
-        <label>删除</label>
+ <view wx:if="{{addresslist.length==0}}" class='address_empty'> 
+   <view class='img'>
+      <image src='./images/address.png' style='height:80rpx;width:80rpx;'></image>
+   </view> 
+   <label>暂无地址</label> 
+ </view> 
+ <view wx:else>
+    <block  wx:for="{{addresslist}}">
+      <view class='address'>
+        <label class="username">用户名：{{item.username}}</label>
+        <label class="phone">手机号：{{item.phone}}</label>
+        <label class='my-add'>收货地址：{{item.address}}</label> 
+        <view class='operate'>
+          <label bindtap='editAddress'>编辑</label>
+          <label bindtap='delAddress'>删除</label>
+        </view>
       </view>
-    </view>
-  </block>
-  <!-- <view style='height:30rpx;'></view> -->
-  <!-- </view> -->
+    </block>
+  </view>
 
 <view class='add-address'>
-  <button bindtap='newAdd'>+ 新建地址</button>
+  <button bindtap='AddAddress'>+ 新建地址</button>
 </view>

@@ -1,11 +1,35 @@
 // pages/address/index.js
+var app = getApp();
+var httpEngine = require('../../utils/netUtil/HttpEngine.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    addresslist: {地址1:111}
+    addresslist: [],
+  },
+
+  // 新建地址
+  AddAddress:function(e) {
+    wx.navigateTo({
+      url: 'add'
+    });
+  },
+
+  // 删除地址
+  delAddress:function(e) {
+    wx.showModal({
+      title: '注意',
+      content: '您确认要删除？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
   
 
@@ -16,6 +40,16 @@ Page({
     wx.setNavigationBarTitle({
       title: '地址管理'
     });
+    var that = this;
+    httpEngine.executePost(app.globalData.urls.getAddress, {
+      key: wx.getStorageSync('acc_key'),
+      userid: wx.getStorageSync('user_id')
+    }, function (data) {
+      that.setData({
+        addresslist:data.addresslist
+      });
+      
+    }, null, null);
   },
 
   /**
