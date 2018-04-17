@@ -1,11 +1,11 @@
 var util = require('../../utils/util.js');
-var isLogin = !util.isEmpty(wx.getStorageSync('user_id'));
+var islogin ;
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    isLogin: isLogin,
+    isLogin: islogin,
     phone:'',
   },
 
@@ -14,8 +14,10 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({ title: '个人中心' });   
+    islogin = !util.isEmpty(wx.getStorageSync('user_id'));
     this.setData({
-      phone:wx.getStorageSync('phone_no')
+      phone:wx.getStorageSync('phone_no'),
+      isLogin: islogin,
     })   
   },
 
@@ -54,7 +56,7 @@ Page({
     })
   },
   checklogin:function(){
-    if(!isLogin){
+    if (!islogin){
       wx.navigateTo({
         url: '../../pages/sign-in/index',
       })

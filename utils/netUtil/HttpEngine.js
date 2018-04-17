@@ -26,7 +26,7 @@ function executePost (urlPath, params, onSuccess, onErrorBefore, onComplete) {
           return;
         }
         wx.showToast({
-          title: this.getCodeMsg(res.data.msg),
+          title: getCodeMsg(res.data.msg),
           icon:'none',
           duration:1000 
         });
@@ -84,6 +84,9 @@ function getCodeMsg(msg) {
     case 'SET_FAILED':
       strMsg = '写入数据库失败'
       break;
+    case 'EXIST_USER':
+      strMsg = '改手机号已注册，请登录'
+    break;
   }
   return strMsg;
 }
