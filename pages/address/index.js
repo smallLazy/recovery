@@ -28,8 +28,8 @@ Page({
             key: wx.getStorageSync('acc_key'),
             userid: wx.getStorageSync('user_id'),
             id:id,
-          }, function (res) {
-            // TODO 刷新
+          }, function (data) {
+            this.getAdressData();
           }, null, null);
 
         } else if (res.cancel) {
@@ -47,18 +47,11 @@ Page({
     wx.setNavigationBarTitle({
       title: '地址管理'
     });
-    var that = this;
-    httpEngine.executePost(app.globalData.urls.getAddress, {
-      key: wx.getStorageSync('acc_key'),
-      userid: wx.getStorageSync('user_id')
-    }, function (data) {
-      that.setData({
-        addresslist:data.addresslist
-      });
-      
-    }, null, null);
+    
   },
+  editAddress:function(){
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -70,7 +63,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.getAdressData();
   },
 
   /**
@@ -106,5 +99,17 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  getAdressData:function(){
+    var that=this;
+    httpEngine.executePost(app.globalData.urls.getAddress, {
+      key: wx.getStorageSync('acc_key'),
+      userid: wx.getStorageSync('user_id')
+    }, function (data) {
+      that.setData({
+        addresslist: data.addresslist
+      });
+
+    }, null, null);
   }
 })

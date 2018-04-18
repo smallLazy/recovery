@@ -1,12 +1,10 @@
 {
 
   "pages":[
+    
+    "pages/order/place_order",
     "pages/address/index",
     "pages/address/add",
-    "pages/order/place_order",
-    
-   
-    
     "pages/sign-in/index",
     "pages/sign-in/register",
     "pages/index/index",
