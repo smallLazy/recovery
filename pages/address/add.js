@@ -48,7 +48,7 @@ Page({
     }else{
       httpEngine.executePost(app.globalData.urls.addAddress, {
         key: wx.getStorageSync('acc_key'),
-        userid: wx.getStorageSync('user_id'),
+        user_id: wx.getStorageSync('user_id'),
         address: add,
         detail_address: detail_add,
         username: uname,

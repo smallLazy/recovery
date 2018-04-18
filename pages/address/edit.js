@@ -49,7 +49,7 @@ Page({
     } else {
       httpEngine.executePost(app.globalData.urls.editAddress, {
         key: wx.getStorageSync('acc_key'),
-        userid: wx.getStorageSync('user_id'),
+        user_id: wx.getStorageSync('user_id'),
         id:id,
         address: add,
         detail_address: detail_add,
@@ -84,7 +84,7 @@ Page({
     var that = this;
     httpEngine.executePost(app.globalData.urls.getOneAdd, {
       key: wx.getStorageSync('acc_key'),
-      userid: wx.getStorageSync('user_id'),
+      user_id: wx.getStorageSync('user_id'),
       id: id
     }, function (data) {
       that.setData({
