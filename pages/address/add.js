@@ -60,9 +60,7 @@ Page({
             icon: 'success',
             duration: 1500
           });
-          wx.navigateTo({
-            url: 'index'
-          })
+          wx.navigateBack();
         }else{
           wx.showToast({
             title: '添加失败',
