@@ -1,4 +1,4 @@
-//app.js
+﻿//app.js
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -39,6 +39,8 @@ App({
       delAddress:'http://www.lazyfei.top/api/'+"address/del",
       getOneAdd:"http://www.lazyfei.top/api/"+"address/get-add-by-id",
       editAddress: "http://www.lazyfei.top/api/" + "address/edit-addr",
+      receiveOrder: "http://www.lazyfei.top/api/" +"order/receive-order",
+      delAddress:'http://www.lazyfei.top/api/'+"address/del"
     }
   },
   onShow:function(){
