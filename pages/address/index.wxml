@@ -9,9 +9,9 @@
       <view class='address'>
         <label class="username">用户名：{{item.username}}</label>
         <label class="phone">手机号：{{item.phone}}</label>
-        <label class='my-add'>收货地址：{{item.address}}</label> 
+        <label class='my-add'>收货地址：{{item.address}}{{item.detail_address}}</label> 
         <view class='operate'>
-          <label bindtap='editAddress'>编辑</label>
+          <label bindtap='editAddress' id = "{{item.id}}">编辑</label>
           <label bindtap='delAddress' id="{{item.id}}">删除</label>
         </view>
       </view>

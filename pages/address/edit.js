@@ -1,4 +1,4 @@
-// pages/address/add.js
+// pages/address/edit.js
 var app = getApp();
 var httpEngine = require('../../utils/netUtil/HttpEngine.js');
 Page({
@@ -7,13 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    region:[],
-    // addData:[]
+    addlist:[],
+    id:''
   },
 
   // 表单
   formSubmit: function (e) {
     var that = this;
+    var id = that.data.id;
     var data = e.detail.value;
     var phone = data.phone;
     var uname = data.uname;
@@ -45,49 +46,53 @@ Page({
         duration: 1500
       })
       return false;
-    }else{
-      httpEngine.executePost(app.globalData.urls.addAddress, {
+    } else {
+      httpEngine.executePost(app.globalData.urls.editAddress, {
         key: wx.getStorageSync('acc_key'),
         userid: wx.getStorageSync('user_id'),
+        id:id,
         address: add,
         detail_address: detail_add,
         username: uname,
-        phone:phone
-      }, function (res) {
-        if(res.code == 200) {
+        phone: phone
+      }, function (data) {
+        console.log(data);
+        if (data.code == 200) {
           wx.showToast({
-            title:'添加成功' ,
+            title: '修改成功',
             icon: 'success',
             duration: 1500
           });
-          wx.navigateTo({
-            url: 'index'
-          })
-        }else{
+          
+        } else {
           wx.showToast({
-            title: '添加失败',
+            title: '修改失败',
             icon: 'none',
             duration: 1500
           });
         }
       }, null, null);
     }
-    
-  },
 
-  bindRegionChange: function (e) {
-    this.setData({
-      region: e.detail.value
-    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '添加新地址'
-    });
+    var id = options.id;
+    var that = this;
+    httpEngine.executePost(app.globalData.urls.getOneAdd, {
+      key: wx.getStorageSync('acc_key'),
+      userid: wx.getStorageSync('user_id'),
+      id: id
+    }, function (data) {
+      that.setData({
+        addlist: data.addlist,
+        id: data.addlist.id
+      });
+
+    }, null, null);
   },
 
   /**

@@ -3,12 +3,12 @@
   <image class='header' src='./images/unlogin-header.png' style='width: 64px; height:64px;'></image>
   <label class='login-button' bindtap='login'>{{isLogin?phone:'请先登录'}}</label>   
 </view>
-<view class='content'>
+ <view class='content'>
   <navigator class='nav-common' url="{{isLogin?'/pages/order/myorder':'/pages/sign-in/index?type=1'}}" open-type='navigate'>
     <image src='./images/order.png' style='width: 28px; height: 28px;'></image>
     <label>我的订单</label>
   </navigator>
-  <navigator class='nav-common' url="{{isLogin?'/pages/address/index':'/pages/sign-in/index?type=1'}}" open-type='navigate'>
+   <navigator class='nav-common' url="{{isLogin?'/pages/address/index':'/pages/sign-in/index?type=1'}}" open-type='navigate'>
     <image src='./images/rec-add.png' style='width: 28px; height: 28px;'></image>
     <label>收货地址</label>
   </navigator>
@@ -23,5 +23,5 @@
   <navigator class='nav-common' url="{{isLogin?'/pages/feedback/index':'/pages/sign-in/index?type=1'}}" open-type='navigate'>
     <image src='./images/customer.png'  style='width: 28px; height: 28px;'></image>
     <label>意见反馈</label>
-  </navigator>
-</view>
+  </navigator> 
+</view> 

@@ -30,6 +30,13 @@ Page({
             id:id,
           }, function (res) {
             // TODO 刷新
+            if(res.code == 200) {
+              wx.showToast({
+                title: '删除成功',
+                icon: 'success',
+                duration: 1500
+              });
+            }
           }, null, null);
 
         } else if (res.cancel) {
@@ -37,6 +44,14 @@ Page({
         }
       }
     })
+  },
+
+  // 编辑地址
+  editAddress:function(e) {
+    var id = e.target.id;
+    wx.navigateTo({
+      url: 'edit?id='+id
+    });
   },
   
 
