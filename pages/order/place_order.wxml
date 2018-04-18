@@ -1,6 +1,6 @@
 <!--pages/order/place_order.wxml-->
 <view class='content'>
-  <view wx:if='{{isPlace}}'>
+  <view wx:if='{{isPlace}}' class='{{isUser}}'>
     <form bindsubmit="formSubmit" bindreset="formReset">
       <view class='common'>
         <image src='./images/contacts.png' style='width:28px; height:28px;'></image>
