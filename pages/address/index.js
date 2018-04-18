@@ -26,9 +26,14 @@ Page({
         if (res.confirm) {
           httpEngine.executePost(app.globalData.urls.delAddress, {
             key: wx.getStorageSync('acc_key'),
-            userid: wx.getStorageSync('user_id'),
-            id:id,
+            user_id: wx.getStorageSync('user_id'),
+            id:id
           }, function (data) {
+            wx.showToast({
+              title: '删除成功',
+              icon: 'success',
+              duration: 1500
+            });
             this.getAdressData();
           }, null, null);
 
@@ -37,6 +42,14 @@ Page({
         }
       }
     })
+  },
+
+  // 编辑地址
+  editAddress:function(e) {
+    var id = e.target.id;
+    wx.navigateTo({
+      url: 'edit?id='+id
+    });
   },
   
 
@@ -47,7 +60,6 @@ Page({
     wx.setNavigationBarTitle({
       title: '地址管理'
     });
-    
   },
   editAddress:function(){
 

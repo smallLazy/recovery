@@ -36,6 +36,9 @@ App({
       getVerifyingCode:"http://www.lazyfei.top/api/"+"login/get-phone-vcode",
       getAddress:"http://www.lazyfei.top/api/"+"address/show",
       addAddress:"http://www.lazyfei.top/api/"+ "address/add",
+      delAddress:'http://www.lazyfei.top/api/'+"address/del",
+      getOneAdd:"http://www.lazyfei.top/api/"+"address/get-add-by-id",
+      editAddress: "http://www.lazyfei.top/api/" + "address/edit-addr",
       receiveOrder: "http://www.lazyfei.top/api/" +"order/receive-order",
       delAddress:'http://www.lazyfei.top/api/'+"address/del"
     }
