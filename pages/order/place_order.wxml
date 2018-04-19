@@ -1,4 +1,4 @@
-<!--pages/order/place_order.wxml-->
+  <!--pages/order/place_order.wxml-->
 <view class='content'>
   <view wx:if='{{isPlace}}' class='{{isUser}}'>
     <form bindsubmit="formSubmit" bindreset="formReset">
