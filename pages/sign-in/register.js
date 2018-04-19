@@ -90,6 +90,7 @@ Page({
             wx.setStorageSync('acc_key', data.key);
             wx.setStorageSync('user_id', data.id);
             wx.setStorageSync('user_status', data.user_status);
+            wx.setStorageSync('phone_no', data.phone);
             wx.showToast({
               title: '登录成功',
               icon: 'success',

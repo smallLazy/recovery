@@ -10,6 +10,7 @@ Page({
    */
   data: {
     isPlace: util.isEmpty(user_status)|| user_status!=1,
+    isUser: 'no-display',
     btntext:"立即回收",
     isouttime:false,
     multiIndex:0,
@@ -158,12 +159,9 @@ Page({
    */
   onLoad: function (options) {
     console.log('onLoad');
-    user_status = wx.getStorageSync('user_status');
-    var that = this;
-    that.setData({
-      isPlace: util.isEmpty(user_status) || user_status != 1
-    });
     user_status = wx.getStorageSync('user_status');// 0 普通用户，1回收员，2 大客户  
+    var that = this;
+    
 
     if (user_status == 1) {
       wx.setNavigationBarTitle({ title: '接收订单' });
@@ -171,13 +169,20 @@ Page({
         index: 0,
         text: '接单'
       })
+      that.setData({
+        isPlace: false,
+        isUser: 'no-display',
+      });
     } else {
       wx.setNavigationBarTitle({ title: '发布订单' });  
       wx.setTabBarItem({
         index: 0,
         text: '回收'
       })
-      
+      that.setData({
+        isPlace: true,
+        isUser: 'display',
+      });
     }
     
     
