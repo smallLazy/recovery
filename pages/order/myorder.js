@@ -43,7 +43,7 @@ Page({
         user_id: wx.getStorageSync('user_id'),
         status: status},
         function(data){
-          console.log(data);return false;
+          // console.log(data);return false;
           if (status == 0) {
             that.setData({
               orderlist: data.orderlist

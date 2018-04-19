@@ -11,10 +11,10 @@
   <view wx:else> 
     <block  wx:for="{{orderlist}}">
       <view class='order_item'>
-        <label  class='lable1'>{{item}}</label>
+        <label  class='lable'>{{item.order_id1}}</label>
         <label class='lable'>回收地址：{{item.address}}</label>
         <label class='lable'>手机号：{{item.user_phone}}</label>
-        <label class='lable'>回收员：{{item.rec_phone}} {{item.rec_phone}}</label>
+        <!-- <label class='lable'>回收员：{{item.rec_phone}} {{item.rec_phone}}</label> -->
         <label class='lable'>状态：<span class="red"> {{item.status == 0?'等待回收员接单中...':'回收员已接单'}}</span></label>
       </view>
     </block>
