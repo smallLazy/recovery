@@ -49,12 +49,7 @@ Page({
     
   },
 
-  backLogin:function(e){
-    wx.clearStorageSync();
-    wx.reLaunch({
-      url: "/pages/sign-in/index"
-    })
-  },
+  
   checklogin:function(){
     if (!islogin){
       wx.navigateTo({

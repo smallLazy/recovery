@@ -1,18 +1,13 @@
 <!--pages/setting/index.wxml-->
  <view class='content'>
   <navigator class='nav-common' url="" open-type='navigate'>
-    <label>我的订单</label>
+    <label>个人信息</label>
   </navigator>
    <navigator class='nav-common' url="" open-type='navigate'>
-    <label>收货地址</label>
+    <label>用户守则</label>
   </navigator>
   <navigator class='nav-common'>
-    <label>系统通知</label>
+    <label>关于一键回收</label>
   </navigator>
-  <navigator class='nav-common' url="{{isLogin?'/pages/setting/index':'/pages/sign-in/index?type=1'}}" open-type='navigate'>
-    <label>设置</label>
-  </navigator>
-  <navigator class='nav-common' url="{{isLogin?'/pages/feedback/index':'/pages/sign-in/index?type=1'}}" open-type='navigate'>
-    <label>意见反馈</label>
-  </navigator> 
+  <button bindtap='backLogin' class='backlogin'>退出登录</button>
 </view> 
