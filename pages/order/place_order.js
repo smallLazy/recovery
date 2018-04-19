@@ -139,7 +139,8 @@ Page({
       user_id: wx.getStorageSync('user_id'),
       user_name: data.name,
       user_phone: data.phoneNo,
-      address: data.address + " " + data.adressDetila,
+      address: data.address,
+      detail_address: data.adressDetila,
       remarks: data.notes,
       appointment_time_start: this.data.time1 + " " + this.data.time2,
       appointment_time_end: this.data.time1 + " " + this.data.time3},function(res){
@@ -321,6 +322,5 @@ Page({
   
   },
   onShow:function(){
-    
   }
 })
