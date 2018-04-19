@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isLogin: islogin,
+    isLogin: !util.isEmpty(wx.getStorageSync('user_id')),
     phone:'',
   },
 
