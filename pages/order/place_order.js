@@ -255,7 +255,9 @@ Page({
     } else {
       httpEngine.executePost(app.globalData.urls.getOrder, {
         key: wx.getStorageSync('acc_key'),
-        user_id: wx.getStorageSync('user_id')},function(data){
+        user_id: wx.getStorageSync('user_id'),
+        is_mime: false
+        },function(data){
           that.setData({
             orderdata: data.orderlist
           })
