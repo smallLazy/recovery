@@ -268,7 +268,7 @@ Page({
     var orderId = event.currentTarget.dataset.hi; 
     httpEngine.executePost(app.globalData.urls.receiveOrder, {
       key: wx.getStorageSync('acc_key'),
-      rec_id: wx.getStorageSync('user_id'),
+      user_id: wx.getStorageSync('user_id'),
       order_id: orderId},function(data){
         wx.showToast({
           title: '接单成功',
