@@ -1,6 +1,8 @@
 {
   "pages":[
+    "pages/setting/index",
     "pages/order/place_order",
+    
     "pages/address/index",
     "pages/address/add",
     "pages/address/edit",

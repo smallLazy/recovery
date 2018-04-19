@@ -16,9 +16,9 @@
     <image src='./images/notice.png' style='width: 28px; height: 28px;'></image>
     <label>系统通知</label>
   </navigator>
-  <navigator class='nav-common' bindtap='backLogin'>
+  <navigator class='nav-common' url="{{isLogin?'/pages/setting/index':'/pages/sign-in/index?type=1'}}" open-type='navigate'>
     <image src='./images/setting.png' style='width: 28px; height: 28px;'></image>
-    <label>退出登录</label>
+    <label>更多设置</label>
   </navigator>
   <navigator class='nav-common' url="{{isLogin?'/pages/feedback/index':'/pages/sign-in/index?type=1'}}" open-type='navigate'>
     <image src='./images/customer.png'  style='width: 28px; height: 28px;'></image>
