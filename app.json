@@ -1,8 +1,7 @@
 {
-  "pages":[
-    "pages/setting/index",
+  "pages": [
     "pages/order/place_order",
-    
+    "pages/setting/index",
     "pages/address/index",
     "pages/address/add",
     "pages/address/edit",
@@ -11,7 +10,8 @@
     "pages/personal-center/index",
     "pages/order/index",
     "pages/feedback/index",
-    "pages/order/myorder"
+    "pages/order/myorder",
+    "pages/sign-in/empty"
   ],
   "window": {
     "backgroundTextStyle": "light",

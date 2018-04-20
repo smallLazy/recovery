@@ -60,9 +60,9 @@ Page({
               icon: 'success',
               duration: 1500
             }) 
-            wx.switchTab({
-              url: '../../pages/order/place_order',
-            });         
+            wx.reLaunch({
+              url: 'empty',
+            })      
          },null,null)
       }
     })

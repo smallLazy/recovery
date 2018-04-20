@@ -44,7 +44,7 @@ Page({
    */
   getAdd:function(e) {
     var that = this;
-    var add =  wx.chooseLocation({
+    var add =  wx.chooseLocation({  
       success: function(res) {
         // return res.address;
         var add = res.address;
