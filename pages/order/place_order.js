@@ -9,6 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // hasLocation: false,
+    // location: { longitude: '', latitude:''},
     isPlace: util.isEmpty(user_status)|| user_status!=1,
     isUser: 'no-display',
     btntext:"立即回收",
@@ -49,7 +51,10 @@ Page({
         // return res.address;
         var add = res.address;
         that.setData({
-          address: add
+          address: add,
+          longitude: res.longitude,
+          latitude:res.latitude
+
         })
       },
     });
@@ -142,6 +147,8 @@ Page({
       address: data.address,
       detail_address: data.adressDetila,
       remarks: data.notes,
+      longitude: data.longitude,
+      latitude: data.latitude,
       appointment_time_start: this.data.time1 + " " + this.data.time2,
       appointment_time_end: this.data.time1 + " " + this.data.time3},function(res){
         wx.showToast({
@@ -254,15 +261,33 @@ Page({
         objectMultiArray: [list1, list2]
       })
     } else {
-      httpEngine.executePost(app.globalData.urls.getOrder, {
-        key: wx.getStorageSync('acc_key'),
-        user_id: wx.getStorageSync('user_id'),
-        is_mime: false
-        },function(data){
+
+      wx.getLocation({
+        success: function(res) {
           that.setData({
-            orderdata: data.orderlist
-          })
-        },null,null);
+            // hasLocation: true,
+            location: 
+            {
+              longitude: res.longitude,
+              latitude: res.latitude
+             }
+          });
+          httpEngine.executePost(app.globalData.urls.getOrder, {
+            key: wx.getStorageSync('acc_key'),
+            user_id: wx.getStorageSync('user_id'),
+            is_mime: false,
+            longitude: that.data.location.longitude,
+            latitude: that.data.location.latitude,
+          }, function (data) {
+            that.setData({
+              orderdata: data.orderlist
+            })
+          }, null, null);
+        },
+      });
+      
+
+
     }
   },
   receiveOrder: function (event){
