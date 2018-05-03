@@ -5,8 +5,8 @@
       <view class='common'>
         <image src='./images/contacts.png' style='width:28px; height:28px;'></image>
         <input type='text' placeholder='联系人' name='name' maxlength='10' bindtap='inputtap'></input>
-        <input type='text' name= 'longitude' value="{{longitude}}"></input>
-        <input type='text' name= 'latitude' value="{{latitude}}"></input>
+        <input type='text' name= 'longitude' value="{{longitude}}" style="display:none;"></input>
+        <input type='text' name= 'latitude' value="{{latitude}}" style="display:none"></input>
       </view>
 
       <view class='common'>
