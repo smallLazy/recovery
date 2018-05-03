@@ -116,7 +116,7 @@ Page({
     var that=this;
     httpEngine.executePost(app.globalData.urls.getAddress, {
       key: wx.getStorageSync('acc_key'),
-      userid: wx.getStorageSync('user_id')
+      user_id: wx.getStorageSync('user_id')
     }, function (data) {
       that.setData({
         addresslist: data.addresslist
