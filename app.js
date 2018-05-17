@@ -1,4 +1,4 @@
-﻿//app.js
+//app.js
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -28,19 +28,20 @@ App({
   },
   globalData: {
     userInfo: null,
+    // urlheader: "https://www.lazyfei.top/api/",
     urls:{
-      loginUrl: "http://www.lazyfei.top/api/" + "login/to-login",
-      placeOrder: "http://www.lazyfei.top/api/" + "order/place-an-order",
-      getOrder: "http://www.lazyfei.top/api/" + "order/order-list",
-      myOrder: "http://www.lazyfei.top/api/" + "order/order-list",
-      getVerifyingCode:"http://www.lazyfei.top/api/"+"login/get-phone-vcode",
-      getAddress:"http://www.lazyfei.top/api/"+"address/show",
-      addAddress:"http://www.lazyfei.top/api/"+ "address/add",
-      delAddress:'http://www.lazyfei.top/api/'+"address/del",
-      getOneAdd:"http://www.lazyfei.top/api/"+"address/get-add-by-id",
-      editAddress: "http://www.lazyfei.top/api/" + "address/edit-addr",
-      receiveOrder: "http://www.lazyfei.top/api/" +"order/receive-order",
-      delAddress:'http://www.lazyfei.top/api/'+"address/del"
+      loginUrl: "https://www.lazyfei.top/api/" + "login/to-login",
+      placeOrder: "https://www.lazyfei.top/api/" + "order/place-an-order",
+      getOrder: "https://www.lazyfei.top/api/" + "order/order-list",
+      myOrder: "https://www.lazyfei.top/api/" + "order/order-list",
+      getVerifyingCode: "https://www.lazyfei.top/api/"+"login/get-phone-vcode",
+      getAddress:"https://www.lazyfei.top/api/"+"address/show",
+      addAddress:"https://www.lazyfei.top/api/"+ "address/add",
+      delAddress:'https://www.lazyfei.top/api/'+"address/del",
+      getOneAdd:"https://www.lazyfei.top/api/"+"address/get-add-by-id",
+      editAddress: "https://www.lazyfei.top/api/" + "address/edit-addr",
+      receiveOrder: "https://www.lazyfei.top/api/" +"order/receive-order",
+      delAddress:'https://www.lazyfei.top/api/'+"address/del"
     }
   },
   onShow:function(){
